@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://www2.bancobrasil.com.br/aapf/principal.jsp?ambienteLayout=completo -->
+<html lang="pt-br" class="novoapf js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths idh chrome"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<meta charset="UTF-8">
+<!-- 	<meta charset="ISO-8859-1"> -->
+	<meta name="viewport" content="width=device-width,initial-scale = 1.0, user-scalable = no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="referrer" content="never">
+	<link rel="icon" href="https://www2.bancobrasil.com.br/aapf/im/bbfav.ico">
+	<title>Banco do Brasil</title>
+	<link rel="stylesheet" type="text/css" href="./recarga cel_files/layout.css">
+	<link rel="stylesheet" type="text/css" href="./recarga cel_files/transacao.css">
+	
+	<script type="text/javascript" src="./recarga cel_files/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="./recarga cel_files/jquery-migrate-1.2.1.js"></script>
+    <script type="text/javascript" src="./recarga cel_files/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="./recarga cel_files/ajax.js"></script>
+    <script type="text/javascript" src="./recarga cel_files/aapf.js"></script>
+    <script type="text/javascript" src="./recarga cel_files/jquery.aapf.js"></script>
+    <script type="text/javascript" src="./recarga cel_files/coca.js"></script>
+    <script type="text/javascript" src="./recarga cel_files/arrastaDiv.js"></script>
+	<script type="text/javascript" src="./recarga cel_files/ControlarDiv.js"></script>
+	<script type="text/javascript" src="./recarga cel_files/formataDados.js"></script>
+<script type="text/javascript" async="" src="./recarga cel_files/pm.bootstrapper.js"></script><script type="text/javascript" src="./recarga cel_files/xrtml-3.2.7-min.js" async="" charset="UTF-8"></script><script type="text/javascript" src="./recarga cel_files/ortcstandalone.js"></script><link rel="stylesheet" type="text/css" href="./recarga cel_files/pm.visitor-styles.css"><script type="text/javascript" src="./recarga cel_files/pm.visitor-min.js" async="" charset="UTF-8"></script><link rel="stylesheet" type="text/css" href="./recarga cel_files/pm-custom-theme.css"></head>
+<body cz-shortcut-listen="true">
+	<div class="principal-overlay" style="display: none;"></div>
+	<div class="principal principal-show geral" style="min-height: 599px;">
+		<div>
+			<div class="cabecalho">
+				<ul>
+					<li class="barraSuperior">
+						<ul class="itensbarrasuperior">
+							<li class="autoAtendimento"><a href="javascript:void(0);" onclick="$.minhaPagina();" tabindex="1"></a></li>
+							<li class="acheFacil">
+								<ul>
+									<li>
+										<input type="text" placeholder="Ache fácil o que você procura" id="acheFacil" tabindex="1">
+									</li>
+									<!-- <li class="microfone">
+										<a href="javascript:void(0)"></a>
+									</li> -->
+								</ul>
+								<div id="listaAcheFacil" style="left: 2px;"></div>
+							</li>
+							<li class="botoesBarraSuperior">
+								<ul>
+									<li class="botoes versaoAnterior"><a href="https://www2.bancobrasil.com.br/aapf/includes/versaoAnterior.jsp" tabindex="-1">Versão anterior</a></li>
+									<li class="botoes botaoTour"><a href="javascript:void(0)" tabindex="1" alt="Fazer tour do auto atendimento" title="Fazer tour do Autoatendimento" onclick="iniciarTourSistema();">Fazer tour</a></li>
+									<li class="botoes botaoSac"><a href="javascript:void(0)" tabindex="1" alt="Registrar reclamação" title="Registrar reclamação" onclick="$.registroReclamacao();">Fale conosco</a></li>
+									<li class="botoes sair"><a href="https://www2.bancobrasil.com.br/aapf/includes/sair.jsp" tabindex="1" alt="Sair" title="Sair">Sair</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>	
+			<div class="dados-cliente">
+				<ul>
+					<li class="fotoPerfil"><a class="avatar" href="javascript:void(0);" tabindex="1"></a></li>
+					<li class="nomeCliente" id="nomePersonalizado">Lailza</li>
+					<li class="ultmio-acesso">Último acesso: 23/07/2015 13:48:55</li>
+					<li class="sessao">Sessão 07min04</li>
+				</ul>
+			</div>
+			<div class="dados-conta">
+				<ul>
+					<li class="minha-pagina"><a href="javascript:void(0)" onclick="$.minhaPagina();" alt="Minha página" title="Minha página" tabindex="1"></a></li>
+					<li class="cpf-naocorrentista">
+						<a href="javascript:void(0)" tabindex="1">CPF<span id="cpf"></span></a>
+					</li>
+					<li class="agencia-conta">
+						<a href="javascript:void(0)" tabindex="1">Ag.<span id="dependenciaOrigem">6832-2</span>C.c.<span id="numeroContratoOrigem">18242-7</span></a>
+						<div class="outras-contas transicao" id="listaOutrasContas">
+							<ul>
+								<li>
+									<a class="contas-item contas-item-trocar-conta" href="javascript:void(0);">Trocar conta</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>			
+			<div class="menu-lateral" pos="1497" style="position: relative; top: 0px;">
+
+				<div class="menu-relacionamento-barra">
+					<ul>
+						<li class="botoes botaoMenuCompleto botao-selecionado"><a href="javascript:void(0);" conteudo="menu-completo" alt="Menu completo" title="Menu completo" tabindex="1" class="selecionado"></a></li>
+						<li class="botoes botaoRelacionamento"><a href="javascript:void(0);" conteudo="menu-relacionamento" alt="Meus relacionamentos" title="Meus relacionamentos" tabindex="1"></a></li>
+						<li class="botoes botaoMensagem"><a href="javascript:void(0);" conteudo="menu-mensagens" alt="Caixa postal BB" title="Caixa postal BB" tabindex="1"></a><div class="notificacao">5</div></li>
+						<li class="botoes botaoRelacionamentoPJ"><a href="javascript:void(0);" conteudo="menu-relacionamentoPJ" alt="Relacionamento com empresas" title="Relacionamento com empresas" tabindex="1"></a></li>
+						<li class="botoes botaoTelefone"><a href="javascript:void(0);" conteudo="menu-telefones" alt="Telefones úteis" title="Telefones úteis" tabindex="1"></a></li>
+					</ul>
+					
+					<style>
+						.agrupamento{ float: left; margin-top: 4px; width: 20%; height: 50px;color: #4b4b4b; padding-top: 33px; text-align: center; font-family: HelveticaNeue-Light, Helvetica Neue Light,sans-serif; font-size: 11px; margin-right: 30px; cursor: pointer; }
+						
+						.setaCimaAgrupada{ float: left; width: 0px; height: 0px; border-style: solid; border-width: 0px 4px 4px 4px; border-color: transparent transparent #AAAAAA transparent; margin-top: 22px; margin-left: 6px; cursor: pointer; }
+						.setaBaixoAgrupada{ float: left;width: 0px;height: 0px;border-style: solid;border-width: 4px 4px 0px 4px;border-color: #AAAAAA transparent transparent transparent;margin-left: 6px;position: absolute; margin-top: 24px; cursor: pointer; }
+					</style>
+					
+					<script>
+						$(function(){
+							$(".agrupamento").click(function(){
+						 		dados = {"parametros" : {"acao": $(this).attr("id"), "cod": $(this).attr("cod"), "ord": $(this).attr("ord")} };		
+						 		dados.url = '/aapf/personalizacao/transacaoAgrupada-00.jsp';
+						 		dados.parametros.ambienteLayout = "transacao";
+						 		dados.funcaoSucesso = function(data){
+						 				$(".corpo").html(data);
+						 		};
+						 		
+						 		$.ajaxApf(dados);
+							}); 	
+							
+							$("#btnMaisAgrupados").click(function(){
+								if($(this).html() == "+"){
+									$(this).html("-");  
+									$("#menuAgrupado").animate({height: "120px"}, 300);
+								}else{
+									$(this).html("+");
+									$("#menuAgrupado").animate({height: "60px"}, 300);
+								}
+							})
+							
+							$("#divMenuSeta").click(function(){
+								if($("#setaAgrupada").hasClass("setaCimaAgrupada")){
+									$("#setaAgrupada").removeClass("setaCimaAgrupada").addClass("setaBaixoAgrupada");
+									$("#menuAgrupado").animate({height: "1px"}, 300);
+								}else{
+									$("#setaAgrupada").removeClass("setaBaixoAgrupada").addClass("setaCimaAgrupada");
+									$("#menuAgrupado").animate({height: "60px"}, 300);
+								}
+								$("#btnMaisAgrupados").html("+");
+							});
+							  
+							$(".agrupamento").hover(function(){
+								console.log("x1");
+								console.log($(this).attr("imgOn"));
+								$(this).attr("style", "background: url(/aapf/im/"+$(this).attr("imgOn")+")  0px -10px no-repeat !important; background-size: 53px 53px !important; margin-top: 6px;");
+							}, function(){
+								console.log($(this).attr("imgOff"));
+								$(this).attr("style", "background: url(/aapf/im/"+$(this).attr("imgOff")+")  0px -10px no-repeat !important; background-size: 53px 53px !important; margin-top: 6px;");
+							})
+							
+							
+							$("#setaAgrupada").addClass("setaCimaAgrupada");
+						})
+					</script>					
+					
+					
+					<div class="conteudo menu-completo">
+						
+						
+						
+						
+							<div class="menu-titulo">Menu Completo</div>						
+						
+						<div class="menu-itens"><ul><li><a codigo="0" nome="Meu menu" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/logo_bb_alinhamento.png);"><div>Meu menu</div><div class="menu-segundo-nivel meu-menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/logo_bb_alinhamento.png);">Meu menu</div><div class="menu-conteudo-nivel2 meu-menu-conteudo-personalizado"><div class="meu-menu-titulo">Menu personalizado<a href="javascript:void(0)" title="Personalizar menu"></a></div><div class="meu-menu-mensagem-erro"></div><div class="meu-menu-conteudo"><div class="meu-menu-overlay"></div><div><ul class="sem-informacao"><li>Não há menus personalizados</li></ul></div></div></div><div class="menu-conteudo-nivel2 meu-menu-conteudo-favoritas"><div class="meu-menu-titulo">Transações favoritas</div><div class="meu-menu-mensagem-erro"></div><div class="meu-menu-conteudo"><div class="meu-menu-overlay"></div><div><ul class="sem-informacao"><li>Não há transações favoritas</li></ul></div></div></div></div></a></li><li class=""><a codigo="18951" nome="Conta-corrente" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/extrato.png);"><div>Conta-corrente</div><div class="menu-segundo-nivel" style="top: 112px; display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/extrato.png);">Conta-corrente</div><ul><li><ul><li class="menu-titulo-nivel2">Extrato</li><li><a href="javascript:void(0)" codigo="3469">Conta Corrente</a></li><li><a href="javascript:void(0)" codigo="3530">Conta Salário</a></li><li class="menu-titulo-nivel2">Extrato Unificado</li><li><a href="javascript:void(0)" codigo="3944">Adesão</a></li><li><a href="javascript:void(0)" codigo="3943">Emissão</a></li><li><a href="javascript:void(0)" codigo="3945">Cancelamento</a></li><li class="menu-titulo-nivel2">Informe Imposto de Renda</li><li><a href="javascript:void(0)" codigo="4028">Rendimentos</a></li><li><a href="javascript:void(0)" codigo="4029">Rendimentos de Ações</a></li><li><a href="javascript:void(0)" codigo="4030">Bancos Incorporados</a></li><li><a href="javascript:void(0)" codigo="4031">Inibição ou reativação de envio</a></li><li><a href="javascript:void(0)" codigo="4032">Autorização de crédito</a></li><li><a href="javascript:void(0)" codigo="4131">Demonstrativo IR INSS</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Extratos diversos</li><li><a href="javascript:void(0)" codigo="3923">Demonstrativo de crédito do INSS</a></li><li><a href="javascript:void(0)" codigo="3924">Previdência Social</a></li><li><a href="javascript:void(0)" codigo="3925">Depósito em Garantia</a></li><li><a href="javascript:void(0)" codigo="3926">Depósito Identificado</a></li><li><a href="javascript:void(0)" codigo="3928">IPVA e demais taxas Detran</a></li><li><a href="javascript:void(0)" codigo="4036">BB Contracheque</a></li><li><a href="javascript:void(0)" codigo="4093">Promoções</a></li><li><a href="javascript:void(0)" codigo="4138">Meus envelopes</a></li><li><a href="javascript:void(0)" codigo="4174">Moeda Estrangeira</a></li><li><a href="javascript:void(0)" codigo="3921">Valores bloqueados</a></li><li><a href="javascript:void(0)" codigo="3918">Agenda Financeira</a></li><li class="menu-titulo-nivel2">Depósito Judicial / Precatórios</li><li><a href="javascript:void(0)" codigo="3927">Extrato de Depósito Judicial</a></li><li><a href="javascript:void(0)" codigo="4198">Autorização</a></li><li><a href="javascript:void(0)" codigo="4199">Cancelamento</a></li><li><a href="javascript:void(0)" codigo="4200">Consulta</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Cheque  especial</li><li><a href="javascript:void(0)" codigo="3880">Adesão</a></li><li><a href="javascript:void(0)" codigo="3881">Confirmação de contratação</a></li><li><a href="javascript:void(0)" codigo="3882">Alteração da data de débito</a></li><li><a href="javascript:void(0)" codigo="4037">Parcelamento da fatura Ourocard</a></li><li><a href="javascript:void(0)" codigo="3967">Cancelamento BB Crédito Parcelado Chq Especial</a></li><li class="menu-titulo-nivel2">Cheques</li><li><a href="javascript:void(0)" codigo="3762">Sustação, revogação ou baixa</a></li><li><a href="javascript:void(0)" codigo="3763">Adesão de cheque em domicílio</a></li><li><a href="javascript:void(0)" codigo="3764">Solicitação de talão</a></li><li><a href="javascript:void(0)" codigo="3765">Cancelamento de solicitação de talão</a></li><li><a href="javascript:void(0)" codigo="3766">Desbloqueio de talão</a></li><li><a href="javascript:void(0)" codigo="3767">Portador autorizado</a></li><li><a href="javascript:void(0)" codigo="3768">Cópia de Cheque</a></li><li><a href="javascript:void(0)" codigo="3919">Extrato</a></li></ul></li></ul></div></a></li><li><a codigo="20015" nome="Poupança" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/poupanca.png);"><div>Poupança</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/poupanca.png);">Poupança</div><ul><li><ul><li class="menu-titulo-nivel2">Aplicação</li><li><a href="javascript:void(0)" codigo="3475">Conta corrente p/ poupança</a></li><li><a href="javascript:void(0)" codigo="3900">Aplicação automática em Poupança Ouro/Poupex</a></li><li><a href="javascript:void(0)" codigo="3901">Aplicação automática em Poupança Salário</a></li><li class="menu-titulo-nivel2">Resgate</li><li><a href="javascript:void(0)" codigo="3856">Poupança Ouro/Poupex</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Solicitações diversas</li><li><a href="javascript:void(0)" codigo="3863">Cadastramento e Priorização</a></li><li class="menu-titulo-nivel2">Consultas</li><li><a href="javascript:void(0)" codigo="3909">Extrato</a></li><li><a href="javascript:void(0)" codigo="4093">Promoções</a></li></ul></li><li><ul></ul></li></ul></div></a></li><li><a codigo="18952" nome="Pagamentos" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/pagamentos.png);"><div>Pagamentos</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/pagamentos.png);">Pagamentos</div><ul><li><ul><li class="menu-titulo-nivel2">Com Código de barras</li><li><a href="javascript:void(0)" codigo="3946">Boletos, convênios e outros</a></li><li><a href="javascript:void(0)" codigo="3947">2º via de boleto registrado BB</a></li><li><a href="javascript:void(0)" codigo="3948">Cancelamento de agendamento</a></li><li class="menu-titulo-nivel2">Sem código de barras</li><li><a href="javascript:void(0)" codigo="3536">DARF</a></li><li><a href="javascript:void(0)" codigo="3537">DARF simples</a></li><li><a href="javascript:void(0)" codigo="3538">GARE - SP</a></li><li><a href="javascript:void(0)" codigo="3539">GARE - SP/CNH/PID</a></li><li><a href="javascript:void(0)" codigo="3540">GPS - Guia da Previdência Social</a></li><li><a href="javascript:void(0)" codigo="3541">GPS Programado</a></li><li><a href="javascript:void(0)" codigo="3542">ICMS-ME-EPP (RJ)</a></li><li><a href="javascript:void(0)" codigo="3543">IPVA/taxas Detran</a></li><li><a href="javascript:void(0)" codigo="3544">IPVA/taxas Detran (São Paulo, Santa Catarina, Bahia e Paraná)</a></li><li><a href="javascript:void(0)" codigo="3545">Prefeitura do Município de São Paulo</a></li><li><a href="javascript:void(0)" codigo="3546">TJ - SP/ Detran MG</a></li><li><a href="javascript:void(0)" codigo="4220">RG &#150; Emissão Segunda Via - SP</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Fatura Ourocard</li><li><a href="javascript:void(0)" codigo="3532">Agendamento/Pagamento de fatura</a></li><li><a href="javascript:void(0)" codigo="3533">Contratação e simulação</a></li><li><a href="javascript:void(0)" codigo="3534">Cancelamento de agendamento</a></li><li class="menu-titulo-nivel2">Solicitações diversas</li><li><a href="javascript:void(0)" codigo="3547">Cadastramento de CPF/CNPJ para pagamento de tributos</a></li><li><a href="javascript:void(0)" codigo="3548">Consulta CPF/CNPJ para pagamento de tributos</a></li><li><a href="javascript:void(0)" codigo="3549">Cadastramento de RENAVAM para pagamento de tributos</a></li><li><a href="javascript:void(0)" codigo="3550">Consulta RENAVAM para pagamento de tributos</a></li><li><a href="javascript:void(0)" codigo="3551">2ª via de comprovantes</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Autorização de débito</li><li><a href="javascript:void(0)" codigo="3481">Inclusão via código de barras</a></li><li><a href="javascript:void(0)" codigo="3782">Cartões Ourocard</a></li><li><a href="javascript:void(0)" codigo="3783">Confirmação de autorização</a></li><li><a href="javascript:void(0)" codigo="3784">Cancelamento de autorização</a></li><li><a href="javascript:void(0)" codigo="3786">Reinclusão de autorização cancelada</a></li><li><a href="javascript:void(0)" codigo="3788">Desbloquear Empresa</a></li><li><a href="javascript:void(0)" codigo="3787">Bloquear Empresa</a></li><li class="menu-titulo-nivel2">Débito agendado</li><li><a href="javascript:void(0)" codigo="3789">Bloqueio</a></li><li><a href="javascript:void(0)" codigo="3790">Desbloqueio</a></li></ul></li></ul></div></a></li><li><a codigo="18953" nome="Transferências" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38342);"><div>Transferências</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38342);">Transferências</div><ul><li><ul><li class="menu-titulo-nivel2">Transferências BB</li><li><a href="javascript:void(0)" codigo="3471">Entre contas correntes</a></li><li><a href="javascript:void(0)" codigo="3552">Entre poupanças</a></li><li><a href="javascript:void(0)" codigo="3475">Conta corrente p/ poupança</a></li><li><a href="javascript:void(0)" codigo="3554">Poupança p/ conta corrente</a></li><li><a href="javascript:void(0)" codigo="3555">Transferência periódica</a></li><li><a href="javascript:void(0)" codigo="3560">De conta salário p/ conta corrente</a></li><li><a href="javascript:void(0)" codigo="3561">Ordem de Pagamento</a></li><li><a href="javascript:void(0)" codigo="3575">Cancelamento de agendamento</a></li><li class="menu-titulo-nivel2">Depósito identificado</li><li><a href="javascript:void(0)" codigo="3557">Entre contas correntes</a></li><li><a href="javascript:void(0)" codigo="3558">CPR BB Leilão</a></li><li><a href="javascript:void(0)" codigo="3559">Poupança p/ conta corrente</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Para outros bancos</li><li><a href="javascript:void(0)" codigo="3556">DOC e TED</a></li><li class="menu-titulo-nivel2">Mesada</li><li><a href="javascript:void(0)" codigo="3563">Autorização</a></li><li><a href="javascript:void(0)" codigo="3564">Cancelamento</a></li><li class="menu-titulo-nivel2">Mesada extra</li><li><a href="javascript:void(0)" codigo="3565">Autorização</a></li><li><a href="javascript:void(0)" codigo="3566">Alteração</a></li><li><a href="javascript:void(0)" codigo="3567">Cancelamento</a></li><li><a href="javascript:void(0)" codigo="3568">Solicitação de transferência</a></li><li><a href="javascript:void(0)" codigo="3922">Extrato mesada extra</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Transações</li><li><a href="javascript:void(0)" codigo="3571">Conta corrente p/ conta única do tesouro - GRU depósito</a></li><li><a href="javascript:void(0)" codigo="3572">Doação ao programa Fome Zero</a></li><li><a href="javascript:void(0)" codigo="3573">Depósito judicial</a></li><li><a href="javascript:void(0)" codigo="3574">Depósito em Garantia</a></li><li><a href="javascript:void(0)" codigo="3578">Contas cadastradas p/ transferência</a></li><li><a href="javascript:void(0)" codigo="3579">2ª via de comprovantes</a></li></ul></li></ul></div></a></li><li><a codigo="18954" nome="Cartões" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/cartoes.png);"><div>Cartões</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/cartoes.png);">Cartões</div><ul><li><ul><li class="menu-titulo-nivel2">Ourocard</li><li><a href="javascript:void(0)" codigo="4218">Fatura Impressa/Débito Automático</a></li><li class="menu-titulo-nivel2">Fatura</li><li><a href="javascript:void(0)" codigo="3580">Extrato</a></li><li><a href="javascript:void(0)" codigo="3581">Saldo</a></li><li><a href="javascript:void(0)" codigo="3582">Limite para compra/saque no cartão</a></li><li><a href="javascript:void(0)" codigo="3591">Arredondamento de fatura - Doação</a></li><li class="menu-titulo-nivel2">Pagamento</li><li><a href="javascript:void(0)" codigo="3532">Agendamento/Pagamento de fatura</a></li><li><a href="javascript:void(0)" codigo="3534">Cancelamento de agendamento</a></li><li><a href="javascript:void(0)" codigo="4037">Parcelamento da fatura Ourocard</a></li><li class="menu-titulo-nivel2">Carteira Digital Stelo</li><li><a href="javascript:void(0)" codigo="4215">Adesão</a></li><li><a href="javascript:void(0)" codigo="4216">Inclusão de novos produtos</a></li><li><a href="javascript:void(0)" codigo="4217">Exclusão de produtos</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Solicitação de cartão</li><li><a href="javascript:void(0)" codigo="3594">Todos os cartões BB</a></li><li><a href="javascript:void(0)" codigo="3595">Acompanhamento de Proposta</a></li><li><a href="javascript:void(0)" codigo="3597">Ourocard Personalizado</a></li><li><a href="javascript:void(0)" codigo="3598">Ourocard Crediário</a></li><li><a href="javascript:void(0)" codigo="3600">Cartão Segunda Bandeira</a></li><li><a href="javascript:void(0)" codigo="3599">Ourocard Origens - Galeria Sebastião Salgado</a></li><li class="menu-titulo-nivel2">Solicitações diversas</li><li><a href="javascript:void(0)" codigo="3585">Liberação de cartão</a></li><li><a href="javascript:void(0)" codigo="3586">Habilitação Uso no Crédito</a></li><li><a href="javascript:void(0)" codigo="3587">Habilitação para uso no exterior</a></li><li><a href="javascript:void(0)" codigo="4135">Avaliação Emergencial de Crédito</a></li><li><a href="javascript:void(0)" codigo="4196">Programa de Recompensas Outros Cartões</a></li><li><a href="javascript:void(0)" codigo="3592">Alteração de número Ourocard Bônus Celular</a></li><li><a href="javascript:void(0)" codigo="4047">Aviso SMS Gratuito - Adesão/Cancel.</a></li><li class="menu-titulo-nivel2">Ourocard-e</li><li><a href="javascript:void(0)" codigo="3593">Solicitação/consulta/alteração</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">BB Conta de Pagamento</li><li><a href="javascript:void(0)" codigo="3569">Transferência para celular</a></li><li><a href="javascript:void(0)" codigo="3570">Reenvio de transferências pendentes</a></li><li class="menu-titulo-nivel2">Cartão pré-pago</li><li><a href="javascript:void(0)" codigo="3894">Carga e Recarga</a></li><li><a href="javascript:void(0)" codigo="3896">Extrato/Saldo</a></li><li><a href="javascript:void(0)" codigo="3890">Pedido de cartão</a></li><li><a href="javascript:void(0)" codigo="3892">Cadastramento de senha provisória</a></li><li><a href="javascript:void(0)" codigo="3893">Autorização para crédito de terceiros</a></li><li class="menu-titulo-nivel2">Cartão parceria Oi</li><li><a href="javascript:void(0)" codigo="3603">SMS Adesão</a></li><li><a href="javascript:void(0)" codigo="3605">SMS Cancelamento</a></li><li><a href="javascript:void(0)" codigo="3606">Vinculação de celular</a></li><li class="menu-titulo-nivel2">Visa Travel Money</li><li><a href="javascript:void(0)" codigo="3613">Extrato</a></li><li><a href="javascript:void(0)" codigo="3615">Recarga</a></li></ul></li></ul></div></a></li><li><a codigo="18955" nome="Empréstimo" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38346);"><div>Empréstimo</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38346);">Empréstimo</div><ul><li><ul><li class="menu-titulo-nivel2">Solicitação de Crédito</li><li><a href="javascript:void(0)" codigo="4039">Crédito novo</a></li><li><a href="javascript:void(0)" codigo="4040">Renovação de empréstimos</a></li><li><a href="javascript:void(0)" codigo="4042">Parcele suas contas</a></li><li><a href="javascript:void(0)" codigo="4043">Antecipe seus Créditos</a></li><li><a href="javascript:void(0)" codigo="4046">Confirmação de Empréstimo</a></li><li><a href="javascript:void(0)" codigo="4049">Assinatura de contrato CDC</a></li><li><a href="javascript:void(0)" codigo="4048">Cancelamento</a></li><li class="menu-titulo-nivel2">Reescalonamento de dívidas</li><li><a href="javascript:void(0)" codigo="3626">Contratação</a></li><li><a href="javascript:void(0)" codigo="3627">Cancelamento</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Financiamento de veículos</li><li><a href="javascript:void(0)" codigo="3961">Aquisição de veículo</a></li><li><a href="javascript:void(0)" codigo="3962">Empréstimo com seu veiculo como garantia</a></li><li><a href="javascript:void(0)" codigo="3963">Troca com troco</a></li><li><a href="javascript:void(0)" codigo="3964">Renovação</a></li><li class="menu-titulo-nivel2">BB Crédito Imobiliário</li><li><a href="https://www42.bb.com.br/portalbb/creditoImobiliario/Proposta,2,2250,2250.bbx" codigo="3969">Aquisição de imóvel &#150; simule aqui</a></li><li><a href="javascript:void(0)" codigo="3973">Extrato</a></li><li><a href="javascript:void(0)" codigo="3974">Demonstrativo de prestação</a></li><li><a href="https://www42.bb.com.br/portalbb/creditoImobiliario/Proposta,2,2250,19458.bbx?imovelProprio=S" codigo="3970">BB Crédito Imóvel Próprio &#150; empréstimo com garantia de imóvel</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Financiamento de Bens e Serviços</li><li><a href="javascript:void(0)" codigo="3639">BB Crediário - Material de Construção</a></li><li><a href="javascript:void(0)" codigo="3474">BB Crediário - Outros Bens</a></li><li class="menu-titulo-nivel2">Solicitações diversas</li><li><a href="javascript:void(0)" codigo="3780">Autorização para Consulta  ao SCR</a></li><li><a href="javascript:void(0)" codigo="3929">Extrato de Empréstimos e Financiamentos</a></li><li><a href="javascript:void(0)" codigo="3930">Extrato consolidado de operações de crédito</a></li><li><a href="javascript:void(0)" codigo="3968">Transferências entre CDC/Cartão/Cheque Especial</a></li></ul></li></ul></div></a></li><li><a codigo="19106" nome="Solução de dívidas" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/solucoes-de-dividas.png);"><div>Solução de dívidas</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/solucoes-de-dividas.png);">Solução de dívidas</div><ul><li><ul><li class="menu-titulo-nivel2">Situação das suas dívidas</li><li><a href="javascript:void(0)" codigo="4003">Consulta</a></li><li class="menu-titulo-nivel2">Dívidas atrasadas</li><li><a href="javascript:void(0)" codigo="4004">Consulta e parcelamento</a></li><li><a href="javascript:void(0)" codigo="4005">Emissão de 2º via de dívida já parcelada</a></li><li><a href="javascript:void(0)" codigo="4006">Impressão do Termo de Compromisso</a></li><li class="menu-titulo-nivel2">Dívidas com pagamento em dia</li><li><a href="javascript:void(0)" codigo="4007">Parcelamento do saldo devedor do Cheque Especial, do Cartão de Crédito  e de Empréstimos</a></li><li><a href="javascript:void(0)" codigo="4008">Renovação de empréstimos</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Cancelamento</li><li><a href="javascript:void(0)" codigo="4009">Parcelamento de dívidas em atraso</a></li><li><a href="javascript:void(0)" codigo="4010">Parcelamento de dívidas em dia: saldo devedor do cheque  especial ou do cartão de crédito</a></li><li><a href="javascript:void(0)" codigo="4011">Renovação de empréstimos</a></li></ul></li><li><ul></ul></li></ul></div></a></li><li><a codigo="18957" nome="Investimentos" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/investimentos.png);"><div>Investimentos</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/investimentos.png);">Investimentos</div><ul><li><ul><li class="menu-titulo-nivel2">Aplicação</li><li><a href="javascript:void(0)" codigo="4185">Fundos de Investimento</a></li><li><a href="javascript:void(0)" codigo="4186">CDB</a></li><li><a href="javascript:void(0)" codigo="4187">LCA - Letra de Crédito do Agronegócio</a></li><li><a href="javascript:void(0)" codigo="4188">LCI - Letra de Crédito Imobiliário</a></li><li><a href="javascript:void(0)" codigo="4189">Compra e Venda de Ações</a></li><li><a href="javascript:void(0)" codigo="4219">Compra e Venda de Debêntures</a></li><li><a href="javascript:void(0)" codigo="4190">Compromissada BB Aplic</a></li><li><a href="https://www41.bb.com.br/portalbb/tdr/login.html?" codigo="4191">Tesouro Direto</a></li><li class="menu-titulo-nivel2">Resgate</li><li><a href="javascript:void(0)" codigo="3857">Fundos de Investimento</a></li><li><a href="javascript:void(0)" codigo="3858">CDB</a></li><li><a href="javascript:void(0)" codigo="3859">LCA</a></li><li><a href="javascript:void(0)" codigo="3860">LCI</a></li><li><a href="javascript:void(0)" codigo="3861">Compromissada BB Aplic</a></li><li><a href="https://www41.bb.com.br/portalbb/tdr" codigo="3862">Tesouro Direto</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Extrato de investimentos</li><li><a href="javascript:void(0)" codigo="3910">Fundos de investimento</a></li><li><a href="javascript:void(0)" codigo="3911">CDB/RDB e BB Reaplic</a></li><li><a href="javascript:void(0)" codigo="3912">LCA</a></li><li><a href="javascript:void(0)" codigo="3913">LCI</a></li><li><a href="javascript:void(0)" codigo="3914">Compromissada BB Aplic</a></li><li><a href="javascript:void(0)" codigo="3915">Ações na instituição depositária - Quantidade</a></li><li><a href="javascript:void(0)" codigo="3916">Ações na instituição depositária - Dividendos</a></li><li><a href="javascript:void(0)" codigo="3917">Tesouro Direto</a></li><li><a href="javascript:void(0)" codigo="4197">Certificado de Operações Estruturadas</a></li><li class="menu-titulo-nivel2">Resgate Automático</li><li><a href="javascript:void(0)" codigo="3863">Cadastramento e Priorização</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Solicitações diversas</li><li><a href="https://moedas.bb.com.br/moedas/produtomercadoriacomemorativo/listarDisponiveis.action" codigo="3778">Venda de Moedas Comemorativas</a></li><li><a href="https://www41.bb.com.br/portalbb/tdr/termoAdesao.html" codigo="3864">Cadastramento no Tesouro Direto</a></li><li><a href="javascript:void(0)" codigo="3866">Suspensão do extrato de fundos via Correios</a></li><li><a href="javascript:void(0)" codigo="3867">Cancelamento de aplicação/resgate - Fundos e CDB</a></li><li><a href="javascript:void(0)" codigo="3869">Cancelamento de aplicação em LCI</a></li><li><a href="javascript:void(0)" codigo="3865">Inibe informação de investimento no TAA</a></li><li><a href="javascript:void(0)" codigo="4105">Cancelamento de aplicação em LCA</a></li><li><a href="javascript:void(0)" codigo="4106">Cancelamento de resgate de LCA</a></li><li class="menu-titulo-nivel2">Análise de perfil do investidor</li><li><a href="javascript:void(0)" codigo="4150">Responder questionário</a></li><li><a href="javascript:void(0)" codigo="4151">Consultar questionário respondido</a></li><li><a href="javascript:void(0)" codigo="4152">Meu perfil</a></li><li><a href="javascript:void(0)" codigo="4153">Simulador do perfil</a></li></ul></li></ul></div></a></li><li><a codigo="18958" nome="Ponto pra Você" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/ponto_pra_vc.png);"><div>Ponto pra Você</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/ponto_pra_vc.png);">Ponto pra Você</div><ul><li><ul><li class="menu-titulo-nivel2">Programas de recompensas</li><li><a href="javascript:void(0)" codigo="4053">Extrato de pontos do programa</a></li><li><a href="javascript:void(0)" codigo="4035">Extrato de pontos de relacionamento</a></li><li><a href="javascript:void(0)" codigo="4073">Compra de Pontos</a></li><li><a href="javascript:void(0)" codigo="4126">Transferência entre correntistas</a></li><li><a href="javascript:void(0)" codigo="4127">GOL - Transferência para Smiles</a></li><li><a href="javascript:void(0)" codigo="4128">TAM - Transferência para Multiplus</a></li><li><a href="javascript:void(0)" codigo="4129">Azul - Transferência para o TudoAzul</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Dotz</li><li><a href="javascript:void(0)" codigo="4060">Transferência parcial para Dotz</a></li><li><a href="javascript:void(0)" codigo="4061">Troca de Dotz por produtos</a></li><li><a href="javascript:void(0)" codigo="4062">Troca de Dotz por Recarga para Celular</a></li><li><a href="javascript:void(0)" codigo="4063">Passagens via Viaje Dotz</a></li><li><a href="javascript:void(0)" codigo="4064">Adesão à conversão automática Dotz</a></li><li><a href="javascript:void(0)" codigo="4065">Cancelamento de adesão à conversão automática</a></li><li><a href="javascript:void(0);" codigo="4066" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://www.dotz.com.br/ganharnainternet/&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">Ganhe Dotz na Internet</a></li><li><a href="javascript:void(0)" codigo="4067">Saiba mais</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Promoção Ourocard</li><li><a href="javascript:void(0)" codigo="4059">Troca de pontos por cupons</a></li><li class="menu-titulo-nivel2">Telefonia &#150; Recarga + Bônus Celular</li><li><a href="javascript:void(0);" codigo="4205" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://loja.minutrade.com.br/ppv/oi&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">OI</a></li><li><a href="javascript:void(0);" codigo="4206" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://loja.minutrade.com.br/ppv/vivo&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">VIVO</a></li><li><a href="javascript:void(0);" codigo="4207" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://loja.minutrade.com.br/ppv/tim&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">TIM</a></li><li><a href="javascript:void(0);" codigo="4208" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://loja.minutrade.com.br/ppv/claro&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">Claro</a></li><li class="menu-titulo-nivel2">Entretenimento</li><li><a href="javascript:void(0);" codigo="4209" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://loja.minutrade.com.br/ppv/Entretenimento&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">Cinema</a></li></ul></li></ul></div></a></li><li><a codigo="18963" nome="Câmbio" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/cambio.png);"><div>Câmbio</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/cambio.png);">Câmbio</div><ul><li><ul><li class="menu-titulo-nivel2">Ordem de pagamento</li><li><a href="javascript:void(0)" codigo="3562">Emissão de ordem para o exterior</a></li><li><a href="javascript:void(0)" codigo="3519">Extrato - recebidas do exterior</a></li><li><a href="javascript:void(0)" codigo="3520">Extrato - enviadas ao exterior</a></li><li><a href="javascript:void(0)" codigo="3576">Cancelamento</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Termo de moedas</li><li><a href="javascript:void(0)" codigo="3774">Inclusão</a></li><li><a href="javascript:void(0)" codigo="3775">Recompra</a></li><li><a href="javascript:void(0)" codigo="3939">Termo de moedas</a></li></ul></li><li><ul></ul></li></ul></div></a></li><li class=""><a codigo="19771" nome="Serviços para Telefone" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/servicos_celular.png);"><div>Serviços para Telefone</div><div class="menu-segundo-nivel" style="top: 701px; display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/servicos_celular.png);">Serviços para Telefone</div><ul><li><ul><li class="menu-titulo-nivel2">Recarga de telefone</li><li><a href="javascript:void(0)" codigo="4012">Recarga celular pré-pago</a></li><li><a href="javascript:void(0)" codigo="4013">Carga de telefone fixo</a></li><li class="menu-titulo-nivel2">Saque sem</li><li><a href="javascript:void(0)" codigo="3760">Solicitação de saque</a></li><li class="menu-titulo-nivel2">Serviços de SMS</li><li><a href="javascript:void(0)" codigo="3769">Adesão</a></li><li><a href="javascript:void(0)" codigo="3770">Alteração</a></li><li><a href="javascript:void(0)" codigo="3771">Cancelamento</a></li></ul></li><li><ul></ul></li><li><ul></ul></li></ul></div></a></li><li><a codigo="19960" nome="Meus Limites" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38370);"><div>Meus Limites</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38370);">Meus Limites</div><ul><li><ul><li class="menu-titulo-nivel2">Transações em canais de autoatendimento</li><li><a href="javascript:void(0)" codigo="3729">Consulta</a></li><li><a href="javascript:void(0)" codigo="3730">Personalização</a></li><li class="menu-titulo-nivel2">Limites de crédito</li><li><a href="javascript:void(0)" codigo="3968">Transferências entre CDC/Cartão/Cheque Especial</a></li><li class="menu-titulo-nivel2">Cartão</li><li><a href="http://www.bb.com.br/limitesourocard" codigo="4107">Conheça seus limites</a></li><li><a href="javascript:void(0)" codigo="3731">Limite para compra/saque</a></li><li><a href="javascript:void(0)" codigo="4135">Avaliação Emergencial de Crédito</a></li></ul></li><li><ul></ul></li><li><ul></ul></li></ul></div></a></li><li><a codigo="18959" nome="Seguros" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/seguro.png);"><div>Seguros</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/seguro.png);">Seguros</div><ul><li><ul><li class="menu-titulo-nivel2">Seguro de Veículos</li><li><a href="javascript:void(0)" codigo="3479">Simulação, Contratação e Renovação</a></li><li><a href="javascript:void(0)" codigo="3655">Autorizações, Aceites e Cancelamentos</a></li><li><a href="javascript:void(0)" codigo="3669">Consulta</a></li><li><a href="javascript:void(0)" codigo="3656">Impressões</a></li><li><a href="javascript:void(0)" codigo="3657">Apólice</a></li><li><a href="javascript:void(0)" codigo="4212">Agendamentos</a></li><li class="menu-titulo-nivel2">Seguro Residencial</li><li><a href="javascript:void(0)" codigo="3658">Simulação/Contratação</a></li><li><a href="javascript:void(0)" codigo="3659">Consulta</a></li><li><a href="javascript:void(0)" codigo="3661">Cancelamento</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Seguro de vida</li><li><a href="javascript:void(0)" codigo="3650">Simulação</a></li><li><a href="javascript:void(0)" codigo="3651">Contratação</a></li><li><a href="javascript:void(0)" codigo="3652">Consulta</a></li><li><a href="javascript:void(0)" codigo="3653">Cancelamento</a></li><li class="menu-titulo-nivel2">BB Seguro vida mulher</li><li><a href="javascript:void(0)" codigo="3663">Simulação</a></li><li><a href="javascript:void(0)" codigo="3664">Contratação</a></li><li><a href="javascript:void(0)" codigo="3665">Consulta</a></li><li><a href="javascript:void(0)" codigo="3666">Cancelamento</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">BB Proteção</li><li><a href="javascript:void(0)" codigo="3975">Contratação</a></li><li><a href="javascript:void(0)" codigo="3976">Cancelamento</a></li><li class="menu-titulo-nivel2">BB Seguro Crédito Protegido</li><li><a href="javascript:void(0)" codigo="3977">Contratação</a></li><li><a href="javascript:void(0)" codigo="3978">Consulta</a></li><li class="menu-titulo-nivel2">BB Microsseguro proteção pessoal</li><li><a href="javascript:void(0)" codigo="3648">Contratação</a></li><li><a href="javascript:void(0)" codigo="3649">Consulta</a></li></ul></li></ul></div></a></li><li><a codigo="18960" nome="Ourocap" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/ourocap.png);"><div>Ourocap</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/ourocap.png);">Ourocap</div><ul><li><ul><li class="menu-titulo-nivel2">Aquisição</li><li><a href="javascript:void(0)" codigo="3483">Ourocap Torcida Brasil PM</a></li><li><a href="javascript:void(0)" codigo="3683">Ourocap Multisorte</a></li><li><a href="javascript:void(0)" codigo="3684">Ourocap Torcida Brasil PU</a></li><li><a href="javascript:void(0)" codigo="3685">Ourocap Flex</a></li><li><a href="javascript:void(0)" codigo="4125">Ourocap Reserva</a></li><li class="menu-titulo-nivel2">Solicitação</li><li><a href="javascript:void(0)" codigo="3876">Cancelamento de agendamento</a></li><li><a href="javascript:void(0)" codigo="3877">Alteração de agência e conta</a></li><li><a href="javascript:void(0)" codigo="3878">Alteração de endereço</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Consultas</li><li><a href="javascript:void(0)" codigo="3686">Proposta</a></li><li><a href="javascript:void(0)" codigo="3687">Extrato</a></li><li><a href="javascript:void(0)" codigo="3688">Combinações de Sorteio</a></li><li><a href="javascript:void(0)" codigo="3689">Títulos Contemplados</a></li><li><a href="javascript:void(0)" codigo="3690">Impressão de Títulos</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Condições gerais</li><li><a href="http://www.bb.com.br/docs/pub/inst/dwn/TorcidaCGPM36meses.pdf" codigo="3883">Ourocap Torcida Brasil PM - 36 meses</a></li><li><a href="http://www.bb.com.br/docs/pub/inst/dwn/TorcidaCGPM48meses.pdf" codigo="3884">Ourocap Torcida Brasil PM - 48 meses</a></li><li><a href="http://www.bb.com.br/docs/pub/inst/dwn/TorcidaCGPM60meses.pdf" codigo="3885">Ourocap Torcida Brasil PM - 60 meses</a></li><li><a href="http://www.bb.com.br/docs/pub/inst/dwn/PM24P.pdf" codigo="3886">Ourocap Multisorte</a></li><li><a href="http://www.bb.com.br/docs/pub/inst/dwn/TorcidaCGPU36meses.pdf" codigo="3887">Ourocap Torcida Brasil PU - 36 meses</a></li><li><a href="http://www.bb.com.br/docs/pub/inst/dwn/TorcidaCGPU58meses.pdf" codigo="3888">Ourocap Torcida Brasil PU - 58 meses</a></li><li><a href="http://www.bb.com.br/docs/pub/voce/dwn/PP93R.pdf" codigo="3889">Ourocap Flex</a></li></ul></li></ul></div></a></li><li><a codigo="18961" nome="Brasilprev" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/brasilprev.png);"><div>Brasilprev</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/brasilprev.png);">Brasilprev</div><ul><li><ul><li class="menu-titulo-nivel2">Aquisição</li><li><a href="javascript:void(0)" codigo="3482">Simulação</a></li><li><a href="javascript:void(0)" codigo="3708">Contratação</a></li><li><a href="javascript:void(0)" codigo="3709">Cancelar contratação</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Consultas</li><li><a href="javascript:void(0)" codigo="4176">Extrato</a></li><li><a href="javascript:void(0)" codigo="4177">Demonstrativo Financeiro</a></li><li><a href="javascript:void(0)" codigo="4178">Planos</a></li><li><a href="javascript:void(0)" codigo="4179">Proposta</a></li><li><a href="javascript:void(0)" codigo="4180">Rentabilidade Fundos</a></li><li><a href="javascript:void(0)" codigo="4181">2ª Via de Certificado</a></li><li><a href="javascript:void(0)" codigo="4182">Informe para Imposto de Renda</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Solicitações diversas</li><li><a href="javascript:void(0)" codigo="3728">Contribuição extra</a></li><li><a href="javascript:void(0)" codigo="3732">Transferência entre fundos</a></li><li><a href="javascript:void(0)" codigo="3733">Suspensão da contribuição</a></li><li><a href="javascript:void(0)" codigo="3734">Reativação da contribuição</a></li><li><a href="javascript:void(0)" codigo="3738">Dados cadastrais</a></li><li><a href="javascript:void(0)" codigo="3736">Alteração contribuição/benefício/beneficiários</a></li><li><a href="javascript:void(0)" codigo="3737">Formas de pagamento</a></li><li><a href="javascript:void(0)" codigo="3735">Inibição/Reativação de Extrato Impresso</a></li><li><a href="javascript:void(0)" codigo="3739">Tipo de tributação</a></li><li><a href="javascript:void(0)" codigo="3740">Idade de saída</a></li><li><a href="javascript:void(0)" codigo="3741">Redirecionamento das contribuições</a></li></ul></li></ul></div></a></li><li><a codigo="18962" nome="Consórcios" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38343);"><div>Consórcios</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/img.ImgWriter?codigo=38343);">Consórcios</div><ul><li><ul><li class="menu-titulo-nivel2">Aquisição</li><li><a href="javascript:void(0)" codigo="3480">Simulação</a></li><li><a href="javascript:void(0)" codigo="3672">Adesão</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Consultas</li><li><a href="javascript:void(0)" codigo="3673">Cota</a></li><li><a href="javascript:void(0)" codigo="3674">Extrato</a></li><li><a href="javascript:void(0)" codigo="3675">Grupo de Consórcio</a></li><li><a href="javascript:void(0)" codigo="3676">Grupos do consorciado</a></li><li><a href="javascript:void(0)" codigo="3677">Consulta lance</a></li><li><a href="javascript:void(0)" codigo="3678">Resultado da Assembléia</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Solicitações diversas</li><li><a href="javascript:void(0)" codigo="3679">Oferta de lance</a></li><li><a href="javascript:void(0)" codigo="3680">Cancelamento oferta de lance</a></li><li><a href="javascript:void(0)" codigo="3681">Bloqueio de contemplação</a></li><li><a href="javascript:void(0)" codigo="3682">Desbloqueio de contemplação</a></li></ul></li></ul></div></a></li><li><a codigo="18964" nome="Débito Direto Autorizado" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/debito_automatico.png);"><div>Débito Direto Autorizado</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/debito_automatico.png);">Débito Direto Autorizado</div><ul><li><ul><li class="menu-titulo-nivel2">DDA -Sacado</li><li><a href="javascript:void(0)" codigo="3793">Incluir sacado eletrônico</a></li><li><a href="javascript:void(0)" codigo="3794">Excluir sacado eletrônico</a></li><li><a href="javascript:void(0)" codigo="3795">Autorizar sacado</a></li><li><a href="javascript:void(0)" codigo="3796">Desautorizar sacado</a></li><li class="menu-titulo-nivel2">DDA - Cedente</li><li><a href="javascript:void(0)" codigo="3797">Bloquear cedente</a></li><li><a href="javascript:void(0)" codigo="3798">Desbloquear cedente</a></li><li><a href="javascript:void(0)" codigo="3799">Consultar Cedentes bloqueados</a></li><li><a href="javascript:void(0)" codigo="3800">Agendamento Automático</a></li><li class="menu-titulo-nivel2">DDA - Agregado</li><li><a href="javascript:void(0)" codigo="3801">Incluir agregado</a></li><li><a href="javascript:void(0)" codigo="3802">Excluir agregado</a></li><li><a href="javascript:void(0)" codigo="3803">Autorizar vínculo</a></li><li><a href="javascript:void(0)" codigo="3804">Desautorizar vínculo</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">DDA - Obrigações</li><li><a href="javascript:void(0)" codigo="3806">A pagar</a></li><li><a href="javascript:void(0)" codigo="3807">Por estado</a></li><li><a href="javascript:void(0)" codigo="3808">Por cedente</a></li><li><a href="javascript:void(0)" codigo="3809">Por agente eletrônico</a></li><li><a href="javascript:void(0)" codigo="3810">Por faixa de valor</a></li><li><a href="javascript:void(0)" codigo="3811">Por data de vencimento</a></li><li><a href="javascript:void(0)" codigo="3813">Alterar indicador de aceite</a></li><li><a href="javascript:void(0)" codigo="3815">Manutenção de alegação</a></li><li class="menu-titulo-nivel2">DDA - Bloqueio de contas</li><li><a href="javascript:void(0)" codigo="3816">Registrar bloqueio</a></li><li><a href="javascript:void(0)" codigo="3817">Registrar desbloqueio</a></li><li><a href="javascript:void(0)" codigo="3818">Consultar contas bloqueadas</a></li></ul></li><li><ul></ul></li></ul></div></a></li><li><a codigo="18965" nome="Tarifas" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/pacote_servicos.png);"><div>Tarifas</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/pacote_servicos.png);">Tarifas</div><ul><li><ul><li class="menu-titulo-nivel2">Pacotes de serviços</li><li><a href="javascript:void(0)" codigo="3742">Adesão</a></li><li><a href="javascript:void(0)" codigo="3743">Alteração</a></li><li><a href="javascript:void(0)" codigo="3744">Cancelamento</a></li><li class="menu-titulo-nivel2">Termo de adesão</li><li><a href="http://www.bb.com.br/docs/pub/trf/TermoPacotesBB.pdf" codigo="3745">Clientes Banco do Brasil</a></li><li><a href="http://www.bb.com.br/docs/pub/trf/TermoPacotesBPostal.pdf" codigo="3746">Clientes Banco Postal</a></li><li class="menu-titulo-nivel2">Pacote bônus celular</li><li><a href="javascript:void(0)" codigo="3747">Alteração do celular</a></li><li class="menu-titulo-nivel2">Consultas</li><li><a href="javascript:void(0)" codigo="3750">Modalidade do plano</a></li><li><a href="javascript:void(0);" codigo="3751" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://campanhas.minutrade.com.br/contabonus/&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">Crédito do Bônus Celular</a></li><li><a href="javascript:void(0)" codigo="4033">Pacote de serviços e tarifas - mensal</a></li><li><a href="javascript:void(0)" codigo="4034">Pacote de serviços e tarifas - anual</a></li></ul></li><li><ul></ul></li><li><ul></ul></li></ul></div></a></li><li><a codigo="18966" nome="Segurança" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/seguranca.png);"><div>Segurança</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/seguranca.png);">Segurança</div><ul><li><ul><li class="menu-titulo-nivel2">Liberação de computador - SMS</li><li><a href="javascript:void(0)" codigo="3477">Solicitar código de liberação</a></li><li><a href="javascript:void(0)" codigo="3711">Informar código de liberação</a></li><li class="menu-titulo-nivel2">BB Code</li><li><a href="javascript:void(0);" codigo="4051" onclick="popupAlertaRedirecionamento(&#39;/aapf/direciona.jsp?url=http://www.bbcode.com.br/&#39;,&#39;popUp&#39;,&#39;width=566,height=482&#39;);" target="_self">Saiba como funciona</a></li><li><a href="javascript:void(0)" codigo="4052">Habilitar dispositivo</a></li><li class="menu-titulo-nivel2">Certificado digital A3</li><li><a href="javascript:void(0)" codigo="3714">Cadastramento</a></li><li><a href="javascript:void(0)" codigo="3715">Vinculação/Desvinculação de Contas</a></li><li class="menu-titulo-nivel2">Autorização/Bloqueio para transações</li><li><a href="javascript:void(0)" codigo="4147">Smartphone e Tablet</a></li><li><a href="javascript:void(0)" codigo="4148">iPod touch</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Senhas</li><li><a href="javascript:void(0)" codigo="3723">Alteração de senha de autoatendimento (8 dígitos)</a></li><li><a href="javascript:void(0)" codigo="3724">Cadastramento senha CABB (4 dígitos)</a></li><li><a href="javascript:void(0)" codigo="3726">Alteração de senha da CABB</a></li><li><a href="javascript:void(0)" codigo="3727">Desbloqueio</a></li><li class="menu-titulo-nivel2">Cadastro</li><li><a href="javascript:void(0)" codigo="3779">Mantenha seu cadastro atualizado</a></li><li><a href="javascript:void(0)" codigo="4202">Autorização para recebimento de e-mails</a></li><li class="menu-titulo-nivel2">Bacen - Auto credenciamento - Registrato</li><li><a href="javascript:void(0)" codigo="4099">Validação de frase de segurança</a></li></ul></li><li><ul></ul></li></ul></div></a></li><li><a codigo="18967" nome="Contratos BB" href="javascript:void(0);" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/contratos_bb.png);"><div>Contratos BB</div><div class="menu-segundo-nivel" style="display: none;"><div class="menu-titulo-nivel1" style="background-image: url(https://www2.bancobrasil.com.br/aapf/imagens/icones/menu/contratos_bb.png);">Contratos BB</div><ul><li><ul><li class="menu-titulo-nivel2">Cláusulas gerais</li><li><a href="http://www.bb.com.br/portalbb/frm/fw0700611_1.jsp" codigo="3484">Abertura de crédito em conta corrente especiais</a></li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/diemp/dwn/ClausulascontratoCDC.pdf" codigo="3694">Abertura de crédito rotativo - CDC Automático</a></li><li><a href="http://www.bb.com.br/portalbb/frm/fw0700581_1.jsp" codigo="3695">Conta corrente e conta de poupança</a></li><li><a href="http://www.bb.com.br/portalbb/frm/fw0706407_1.jsp" codigo="3697">Débito Direto Autorizado - Contrato</a></li></ul></li><li><ul><li class="menu-titulo-nivel2">Cartão</li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/dicar/dwn/ContratoPetrobras.pdf" codigo="3701">Petrobras</a></li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/dicar/dwn/ContratoSmiles150310.pdf" codigo="3702">Smiles</a></li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/dicar/dwn/ContratoBBPreSocV.pdf" codigo="3703">BB Previdência</a></li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/dicar/dwn/ContratoChev080211.pdf" codigo="3704">Chevrolet Card</a></li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/dicar/dwn/contratocartoesOI.pdf" codigo="3705">Cartão OI</a></li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/dicar/dwn/ContratoPL.pdf" codigo="3706">Demais Private Label</a></li><li><a href="http://www.bb.com.br/docs/pub/siteEsp/dicar/dwn/ContratoCartoes.pdf" codigo="3707">Demais cartões</a></li></ul></li><li><ul></ul></li></ul></div></a></li></ul></div>								
+					</div>
+					<div class="conteudo menu-relacionamento">
+						<div class="menu-titulo">Meus relacionamentos</div>
+						<div class="menu-configuracao-relacionamento">
+							<ul>
+								<li class="botao botaoAdicionar"><a href="javascript:void(0);" onclick="$.criarCaixaDialogoAdicionarRelacionamento(this,event);" alt="Adicionar novo relacionamento" title="Adicionar novo relacionamento"></a></li>
+								<li class="botao botaoConectarFacebook" id="botaoConectarFacebook"><a href="javascript:void(0);" conectado="0" alt="Conectar a sua conta ao facebook" title="Conectar a sua conta ao facebook">Conecte-se</a></li>
+								<li class="solicitacoes-relacionamento">
+									<span>Solicitações</span>
+									<div class="overlay"></div>
+									<div class="solicitacoes-relacionamento-conteudo">
+										<ul></ul>
+									</div>
+								</li>
+								<li class="pesquisar"><input type="text" id="pesquisaRelacionamento" tabindex="1" placeholder="Procurar"></li>
+							</ul>										
+						</div>					
+						<div class="menu-itens"></div>
+					</div>
+					<div class="conteudo menu-mensagens">
+						<div class="menu-titulo">Mensagens</div>
+						<div class="menu-itens"></div>				
+					</div>
+					<div class="conteudo menu-relacionamentoPJ">
+						<div class="menu-titulo">Relacionamentos com empresas</div>
+						<div class="menu-itens"></div>				
+					</div>						
+					<div class="conteudo menu-telefones">
+						<div class="menu-titulo">Telefones</div>
+						<div class="menu-itens"></div>
+					</div>
+				</div>
+			</div>
+			<div class="corpo">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				 				
+				
+				
+				
+				
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+<!--Criterio: 0000100019-->
+<!--ML: 500659-->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<form name="aapf" id="aapf" method="POST" autocomplete="off" target="_self" action="https://www2.bancobrasil.com.br/aapf/outrasOpcoes/841-01.jsp" onsubmit="$.submeterFormulario(this,event);">
+			<ul class="transacao">
+				<li class="transacao-barra-titulo">
+					<ul>
+						<li class="transacao-titulo">
+							<div>Recarga de celular pré-pago                                                                                                                                                                                                                                   </div>
+						</li>
+						<li class="transacao-toolbar">
+							<ul class="transacao-toolbar-itens">
+								
+
+
+
+
+
+
+
+
+<li>
+	<a class="botaoToolBar botaoToolBarFavoritar" onclick="$.criarCaixaDialogoAdicionarFavorita(this,event);" title="Adicionar como favorita" alt="Adicionar como favorita"></a>
+</li>
+								
+
+
+
+
+
+
+
+
+<li>
+	<a class="botaoToolBar botaoToolBarImprimir" onclick="window.print();" title="Imprimir" alt="Imprimir"></a>
+</li>
+								
+
+
+
+
+
+
+
+
+<li>
+	<a class="botaoToolBar botaoToolBarSalvar" onclick="$.criarCaixaDialogoSalvar(this,event);" title="Salvar documento" alt="Salvar documento" nomearquivo="documento" tipos="pdf,txt"></a>
+</li>
+								
+								
+								
+								
+									<li>
+										<a class="botaoToolBar botaoToolBarAjuda" title="Ajuda" alt="Ajuda" onclick="$.criarCaixaDialogoAjuda(this,event);" codigoajuda="2308"></a>
+									</li>					
+								
+								
+							</ul>					
+						</li>
+					</ul>
+				</li>
+				
+					<li class="transacao-banner">
+						<a id="linkBannerTransacao"><img id="imgBannerTransacao"></a>
+						<span class="fechar" id="fecharBanner" onclick="$(this).parent().slideUp(&#39;slow&#39;,function() {$.atualizarBannerTransacao(&#39;fechado&#39;);})"></span>
+					</li>
+					<li class="transacao-abrir-banner">
+						<div id="abrirBanner" style="width: 100%;float: left;text-align: center;" onclick="$(this).parent().slideUp(&#39;slow&#39;,function() {$.atualizarBannerTransacao(&#39;aberto&#39;);})">
+							<span style="border: 1px solid #ddd;padding: 11px 14px;color: #999;font-size: 9px;font-weight: normal; border-radius: 5px;">Ver mensagem</span>					
+						</div>
+					</li>				
+				
+				
+
+
+
+				
+				
+				<li>
+					<div class="transacao-corpo transacao-apf841">
+						
+
+
+
+
+<div class="comprovante"><ul class="ulComprovanteTextoFormatado"><li class="textoComprovFormatado" style="text-align: left;">SISBB&nbsp;&nbsp;-&nbsp;&nbsp;SISTEMA&nbsp;DE&nbsp;INFORMACOES&nbsp;BANCO&nbsp;DO&nbsp;BRASIL</li><li class="textoComprovFormatado" style="text-align: left;">24/07/2015&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AUTOATENDIMENTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.37.04</li><li class="textoComprovFormatado" style="text-align: left;">683206832&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0001</li><li class="textoComprovFormatado" style="text-align: left;"></li><li class="textoComprovFormatado" style="text-align: left;">&nbsp;&nbsp;&nbsp;COMPROVANTE&nbsp;DE&nbsp;CREDITO&nbsp;DE&nbsp;CELULAR&nbsp;PRE-PAGO</li><li class="textoComprovFormatado" style="text-align: left;"></li><li class="textoComprovFormatado" style="text-align: left;">CLIENTE:&nbsp;&nbsp;&nbsp;LAILZA&nbsp;GOMES&nbsp;DA&nbsp;S&nbsp;GAZOTTI</li><li class="textoComprovFormatado" style="text-align: left;">AGENCIA:&nbsp;6832-2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18.242-7</li><li class="textoComprovFormatado" style="text-align: left;">================================================</li><li class="textoComprovFormatado" style="text-align: left;">OPERADORA...........:&nbsp;TIM&nbsp;-&nbsp;Sao&nbsp;Paulo</li><li class="textoComprovFormatado" style="text-align: left;">VALOR&nbsp;DO&nbsp;DEBITO.....:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15,00</li><li class="textoComprovFormatado" style="text-align: left;">BONUS&nbsp;DA&nbsp;OPERADORA..:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,00</li><li class="textoComprovFormatado" style="text-align: left;">VALOR&nbsp;DA&nbsp;RECARGA....:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15,00</li><li class="textoComprovFormatado" style="text-align: left;">DATA&nbsp;DO&nbsp;PAGAMENTO...:&nbsp;24/07/2015&nbsp;&nbsp;HORA:&nbsp;11.36.43</li><li class="textoComprovFormatado" style="text-align: left;">LOCALIDADE/TELEFONE.:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11/94934-6083</li><li class="textoComprovFormatado" style="text-align: left;">NUMERO&nbsp;DOCUMENTO....:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;949346083016494</li><li class="textoComprovFormatado" style="text-align: left;">================================================</li><li class="textoComprovFormatado" style="text-align: left;">AUTENTICACAO&nbsp;SISBB..:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.32D.FC5.4C9.451.2BB</li><li class="textoComprovFormatado" style="text-align: left;">------------------------------------------------</li></ul></div>	
+
+					</div>
+				</li>
+				
+					<li class="transacao-rodape-sucesso"> 
+						
+
+
+
+
+ 
+
+<h3 style="font-size:13px; font-weight: bold; text-align: center;">Transação efetivada com sucesso!</h3>
+
+					</li><li>
+				
+				 					
+				
+				</li><li class="transacao-botoes">
+					
+
+
+
+
+
+
+
+  	 
+					
+
+
+
+
+
+
+
+
+		<input class="botaoapf noPrint" type="submit" name="botaoNovaRecarga.x" id="botaoNovaRecarga" title="Nova recarga" value="NOVA RECARGA   " onclick="getAcaoBotao(&#39;botaoNovaRecarga.x&#39;);trocaBotaoAction(&#39;botaoNovaRecarga&#39;)" tabindex="90">
+  	  
+					 
+					 
+					 
+					
+				</li>
+				<li class="transacao-texto-ajuda">
+					<span id="textoAjuda">&nbsp;</span>
+				</li>
+			</ul>
+			<input type="hidden" name="tokenDuploClique" id="tokenDuploClique" value="334961.57009058655">
+			<input type="hidden" name="codigoTransacao" id="codigoTransacao" value="841">
+			<input type="hidden" name="codigoBannerTransacao" id="codigoBannerTransacao" value="null">			
+			
+			<input type="hidden" name="ambienteLayout" id="ambienteLayout" value="transacao">
+			<input type="hidden" id="botaoAcao" name="botaoAcao">
+			<input type="hidden" id="temposessao" value="450">
+			<input type="hidden" id="mci-ibt" name="mci-ibt" value="828610832">			
+			
+		</form>	
+		
+		
+		
+	
+<script type="text/javascript">
+		
+		</script></div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function(){ 
+			$(".principal").aapf();
+
+			$.ajaxApf({"url" : "/aapf/servico","tiporetorno" : "json",
+				"parametros" : {"servico":"exibirTelaInformativaNoLogin"},
+				"funcaoSucesso" : function(data){
+					if(data.exibeTelaInformativaNoLogin == 'sim'){
+						var parametros = "ambienteLayout=modalTransacao";  		
+						opcoes = {resizeAuto : false, closeOnEscape : false, mostrarTitulo: false, width: 597, height : 450, url : "/aapf/includesSRP/mensagemBemVindoNovoAAPF.jsp", "parametros" : parametros, callback : function(modal){modal.css({"left" : "0px"})} };
+				  		$.abrirModal(opcoes);
+					}
+				 }
+			});
+		});
+	</script>
+
+
+		
+	
+
+	<iframe name="pwmkt" height="0px" width="0px" style="display: none;"></iframe><div id="pm-help-request" class="pm-help-request" style="visibility: hidden;"><div class="pm-help-btns"><a class="pm-textchat-btn not-available" data-bind="enable: textChatAvailable() ,visible:(textChatBackoffice() &amp;&amp; !isInInteraction()),click:function(){ interactionClick(&#39;textChat&#39;)}, css:{&#39;not-available&#39;:!textChatAvailable(), selected:isMyInteraction(&#39;textChat&#39;) &amp;&amp; openMenu(), &#39;not-selected&#39;:!isMyInteraction(&#39;textChat&#39;) &amp;&amp; !isMyState(&#39;disconnected&#39;) &amp;&amp; openMenu()}">Text Chat</a><a class="pm-videochat-btn not-available" data-bind="enable: videoChatAvailable(), visible:(videoChatBackoffice() &amp;&amp; !isInInteraction()),click:function(){interactionClick(&#39;videoChat&#39;)}, css:{&#39;not-available&#39;:!videoChatAvailable(), selected:isMyInteraction(&#39;videoChat&#39;) &amp;&amp; openMenu(), &#39;not-selected&#39;:!isMyInteraction(&#39;videoChat&#39;) &amp;&amp; !isMyState(&#39;disconnected&#39;) &amp;&amp; openMenu()}" style="display: none;">Video Chat</a><a class="pm-callmenow-btn" data-bind="enable: callMeNowAvailable(),visible:(callMeNowBackoffice() &amp;&amp; !isInInteraction()),click:function(){interactionClick(&#39;callMeNow&#39;)}, css:{&#39;not-available&#39;:!callMeNowAvailable(), selected:isMyInteraction(&#39;callMeNow&#39;) &amp;&amp; openMenu(), &#39;not-selected&#39;:!isMyInteraction(&#39;callMeNow&#39;) &amp;&amp; !isMyState(&#39;disconnected&#39;) &amp;&amp; openMenu()}" style="display: none;">Call Me</a></div><!-- textchat starter --><div class="pm-interaction-starter pm-textchat-starter" data-bind="visible:(isMyInteraction(&#39;textChat&#39;) &amp;&amp; preRequestInfo() &amp;&amp; !isInInteraction() &amp;&amp; isMyState(&#39;disconnected&#39;))" style="display: none;"><div class="pm-starter-screen"><h5>Text Chat Request</h5><div class="pre-request-form pm-client-data-for-textchat" id="pm-client-data-for-textchat"><!-- ko foreach: visitorInfo --><label data-bind="text: $data.name, css: $data.myclass, visible: !$data.isFilled()" class="pm-label-nome" style="display: none;">Nome</label><input type="text" maxlength="50" value="" name="" data-bind="visible: !$data.isFilled(), css:{invalid: (!$data.validator() &amp;&amp; $data.value())},value: $data.value, valueUpdate: &#39;afterkeydown&#39;" class="" style="display: none;"><label data-bind="text: $data.name, css: $data.myclass, visible: !$data.isFilled()" class="pm-label-cpf" style="display: none;">CPF</label><input type="text" maxlength="50" value="" name="" data-bind="visible: !$data.isFilled(), css:{invalid: (!$data.validator() &amp;&amp; $data.value())},value: $data.value, valueUpdate: &#39;afterkeydown&#39;" class="" style="display: none;"><label data-bind="text: $data.name, css: $data.myclass, visible: !$data.isFilled()" class="pm-label-telefone" style="display: none;">Telefone</label><input type="text" maxlength="50" value="" name="" data-bind="visible: !$data.isFilled(), css:{invalid: (!$data.validator() &amp;&amp; $data.value())},value: $data.value, valueUpdate: &#39;afterkeydown&#39;" class="" style="display: none;"><!-- /ko --><div class="pm-buttons"><button class="pm-button-start" data-bind="disable: disabledButton,click:function(){startInteractionClick(&#39;textChat&#39;);}">Start</button></div></div></div></div><!-- videochat starter --><div class="pm-interaction-starter pm-videochat-starter" data-bind="visible:(isMyInteraction(&#39;videoChat&#39;) &amp;&amp; preRequestInfo() &amp;&amp; !isInInteraction() &amp;&amp; isMyState(&#39;disconnected&#39;))" style="display: none;"><div class="pm-starter-screen"><h5>Video Chat Request</h5><div class="pre-request-form pm-client-data-for-videochat" id="pm-client-data-for-videochat"><!-- ko foreach: visitorInfo --><label data-bind="text: $data.name">Nome</label><input type="text" maxlength="50" value="" name="" data-bind="disable: $data.isFilled, css:{invalid: (!$data.validator() &amp;&amp; $data.value())},value: $data.value, valueUpdate: &#39;afterkeydown&#39;" class="" disabled=""><label data-bind="text: $data.name">CPF</label><input type="text" maxlength="50" value="" name="" data-bind="disable: $data.isFilled, css:{invalid: (!$data.validator() &amp;&amp; $data.value())},value: $data.value, valueUpdate: &#39;afterkeydown&#39;" class="" disabled=""><label data-bind="text: $data.name">Telefone</label><input type="text" maxlength="50" value="" name="" data-bind="disable: $data.isFilled, css:{invalid: (!$data.validator() &amp;&amp; $data.value())},value: $data.value, valueUpdate: &#39;afterkeydown&#39;" class="" disabled=""><!-- /ko --><div class="pm-buttons"><button class="pm-button-start" data-bind="disable: disabledButton,click:function(){startInteractionClick(&#39;videoChat&#39;);}">Start</button></div></div></div></div><!-- confirm interaction init --><div class="pm-interaction-starter pm-textchat-starter" data-bind="visible:!preRequestInfo() &amp;&amp; isMyInteraction(&#39;textChat&#39;) &amp;&amp; !isInInteraction() &amp;&amp; isMyState(&#39;disconnected&#39;)" style="display: none;"><div class="pm-starter-screen pm-noform"><h5>Text Chat Request</h5><p>Would you like to text chat with an assistant?</p><div class="pm-buttons"><button class="pm-button-yes" data-bind="click:function(){startInteractionClick(&#39;textChat&#39;);}">Yes</button><button class="pm-button-no" data-bind="click:function(){contactMeLater(&#39;No&#39;);}">No</button></div></div></div><!-- confirm interaction init --><div class="pm-interaction-starter pm-videochat-starter" data-bind="visible:!preRequestInfo() &amp;&amp; isMyInteraction(&#39;videoChat&#39;)  &amp;&amp; !isInInteraction() &amp;&amp; isMyState(&#39;disconnected&#39;)" style="display: none;"><div class="pm-starter-screen pm-noform"><h5>Video Chat Request</h5><p>Would you like to video chat with an assistant?</p><div class="pm-buttons"><button class="pm-button-yes" data-bind="click:function(){startInteractionClick(&#39;videoChat&#39;);}">Yes</button><button class="pm-button-no" data-bind="click:function(){contactMeLater(&#39;No&#39;);}">No</button></div></div></div><!-- loading interaction --><div class="pm-interaction-loading" data-bind="visible: isMyState(&#39;connecting&#39;), css:{ &#39;pm-textchat-loading&#39;: isMyInteraction(&#39;textChat&#39;) ,&#39;pm-videochat-loading&#39;: isMyInteraction(&#39;videoChat&#39;) }" style="display: none;"><div class="pm-loading-screen"><h5>Connecting</h5><div class="pm-buttons"><!-- ko if: isMyInteraction('textChat') --><!-- /ko --><!-- ko if: isMyInteraction('videoChat') --><!-- /ko --><!-- ko if: isMyInteraction('callMeNow') --><!-- /ko --></div></div></div><!-- failed interaction --><div class="pm-interaction-failed" data-bind="visible: isMyState(&#39;failed&#39;)" style="display: none;"><div class="pm-failed-screen pm-noform"><h5 data-bind="visible:!interactionInfoSent()">Connection failed</h5><p>Please try again later.</p><div class="pm-buttons"><button class="pm-button-send" data-bind="click:function(){ fireFailedInteractionEvent(); contactMeLater(&#39;No&#39;); }">Ok</button></div><p class="pm-client-data-sent" data-bind="visible:interactionInfoSent()" style="display: none;">Thank you for your submission.</p></div></div><!-- request interaction --><div class="pm-operator-request" data-bind="visible: interactionRequestPending(), css:{ &#39;pm-textChat-request&#39;:isMyRequestType(&#39;textChat&#39;),&#39;pm-videoChat-request&#39;:isMyRequestType(&#39;videoChat&#39;) }" style="display: none;"><div class="pm-operator-request-screen"><h5 data-bind="text: interactionRequestTitle"></h5><div class="pm-request-photo-container"><div class="pm-request-photo"><!-- ko if: operatorInfo.photo --><!-- /ko --></div><p class="pm-request-name" data-bind="text: operatorInfo.username"></p></div><p data-bind="text: interactionRequestBody"></p><div class="pm-buttons"><button class="pm-button-yes" data-bind="click:function(){interactionRequestResponse(true, true);}">Yes</button><button class="pm-button-no" data-bind="click:function(){interactionRequestResponse(false, true);}">No</button></div></div></div></div><div style="display:none;"><script id="visitor-interaction-template" type="text/html"><div class="pm-help-btns"><a class="pm-textchat-btn" data-bind="enable: textChatAvailable() ,visible:(textChatBackoffice() && !isInInteraction()),click:function(){ interactionClick('textChat')}, css:{'not-available':!textChatAvailable(), selected:isMyInteraction('textChat') && openMenu(), 'not-selected':!isMyInteraction('textChat') && !isMyState('disconnected') && openMenu()}">Text Chat</a><a class="pm-videochat-btn" data-bind="enable: videoChatAvailable(), visible:(videoChatBackoffice() && !isInInteraction()),click:function(){interactionClick('videoChat')}, css:{'not-available':!videoChatAvailable(), selected:isMyInteraction('videoChat') && openMenu(), 'not-selected':!isMyInteraction('videoChat') && !isMyState('disconnected') && openMenu()}">Video Chat</a><a class="pm-callmenow-btn" data-bind="enable: callMeNowAvailable(),visible:(callMeNowBackoffice() && !isInInteraction()),click:function(){interactionClick('callMeNow')}, css:{'not-available':!callMeNowAvailable(), selected:isMyInteraction('callMeNow') && openMenu(), 'not-selected':!isMyInteraction('callMeNow') && !isMyState('disconnected') && openMenu()}">Call Me</a></div><!-- textchat starter --><div class="pm-interaction-starter pm-textchat-starter" data-bind="visible:(isMyInteraction('textChat') && preRequestInfo() && !isInInteraction() && isMyState('disconnected'))"><div class="pm-starter-screen"><h5>Text Chat Request</h5><div class="pre-request-form pm-client-data-for-textchat" id="pm-client-data-for-textchat"><!-- ko foreach: visitorInfo --><label data-bind="text: $data.name, css: $data.myclass, visible: !$data.isFilled()"></label><input type="text" maxlength="50" value="" name="" data-bind="visible: !$data.isFilled(), css:{invalid: (!$data.validator() && $data.value())},value: $data.value, valueUpdate: 'afterkeydown'"/><!-- /ko --><div class="pm-buttons"><button class="pm-button-start" data-bind="disable: disabledButton,click:function(){startInteractionClick('textChat');}">Start</button></div></div></div></div><!-- videochat starter --><div class="pm-interaction-starter pm-videochat-starter" data-bind="visible:(isMyInteraction('videoChat') && preRequestInfo() && !isInInteraction() && isMyState('disconnected'))"><div class="pm-starter-screen"><h5>Video Chat Request</h5><div class="pre-request-form pm-client-data-for-videochat" id="pm-client-data-for-videochat"><!-- ko foreach: visitorInfo --><label data-bind="text: $data.name"></label><input type="text" maxlength="50" value="" name="" data-bind="disable: $data.isFilled, css:{invalid: (!$data.validator() && $data.value())},value: $data.value, valueUpdate: 'afterkeydown'"/><!-- /ko --><div class="pm-buttons"><button class="pm-button-start" data-bind="disable: disabledButton,click:function(){startInteractionClick('videoChat');}">Start</button></div></div></div></div><!-- confirm interaction init --><div class="pm-interaction-starter pm-textchat-starter" data-bind="visible:!preRequestInfo() && isMyInteraction('textChat') && !isInInteraction() && isMyState('disconnected')"><div class="pm-starter-screen pm-noform"><h5>Text Chat Request</h5><p>Would you like to text chat with an assistant?</p><div class="pm-buttons"><button class="pm-button-yes" data-bind="click:function(){startInteractionClick('textChat');}">Yes</button><button class="pm-button-no" data-bind="click:function(){contactMeLater('No');}">No</button></div></div></div><!-- confirm interaction init --><div class="pm-interaction-starter pm-videochat-starter" data-bind="visible:!preRequestInfo() && isMyInteraction('videoChat')  && !isInInteraction() && isMyState('disconnected')"><div class="pm-starter-screen pm-noform"><h5>Video Chat Request</h5><p>Would you like to video chat with an assistant?</p><div class="pm-buttons"><button class="pm-button-yes" data-bind="click:function(){startInteractionClick('videoChat');}">Yes</button><button class="pm-button-no" data-bind="click:function(){contactMeLater('No');}">No</button></div></div></div><!-- loading interaction --><div class="pm-interaction-loading" data-bind="visible: isMyState('connecting'), css:{ 'pm-textchat-loading': isMyInteraction('textChat') ,'pm-videochat-loading': isMyInteraction('videoChat') }"><div class="pm-loading-screen"><h5>Connecting</h5><div class="pm-buttons"><!-- ko if: isMyInteraction('textChat') --><button class="pm-button-cancel" data-bind="visible: showCancelOnLoading()===true ,click:function(){cancelConnecting('textChat');}">Cancel</button><!-- /ko --><!-- ko if: isMyInteraction('videoChat') --><button class="pm-button-cancel" data-bind="visible: showCancelOnLoading()===true ,click:function(){cancelConnecting('videoChat');}">Cancel</button><!-- /ko --><!-- ko if: isMyInteraction('callMeNow') --><button class="pm-button-cancel" data-bind="visible: showCancelOnLoading()===true ,click:function(){cancelConnecting('callMeNow');}">Cancel</button><!-- /ko --></div></div></div><!-- failed interaction --><div class="pm-interaction-failed" data-bind="visible: isMyState('failed')"><div class="pm-failed-screen pm-noform"><h5 data-bind="visible:!interactionInfoSent()">Connection failed</h5><p>Please try again later.</p><div class="pm-buttons"><button class="pm-button-send" data-bind="click:function(){ fireFailedInteractionEvent(); contactMeLater('No'); }">Ok</button></div><p class="pm-client-data-sent"  data-bind="visible:interactionInfoSent()">Thank you for your submission.</p></div></div><!-- request interaction --><div class="pm-operator-request" data-bind="visible: interactionRequestPending(), css:{ 'pm-textChat-request':isMyRequestType('textChat'),'pm-videoChat-request':isMyRequestType('videoChat') }"><div class="pm-operator-request-screen"><h5 data-bind="text: interactionRequestTitle"></h5><div class="pm-request-photo-container"><div class="pm-request-photo"><!-- ko if: operatorInfo.photo --><img data-bind="attr: {src: operatorInfo.photo}" alt="Operator photo" /><!-- /ko --></div><p class="pm-request-name" data-bind="text: operatorInfo.username"></p></div><p data-bind="text: interactionRequestBody"></p><div class="pm-buttons"><button class="pm-button-yes" data-bind="click:function(){interactionRequestResponse(true, true);}">Yes</button><button class="pm-button-no" data-bind="click:function(){interactionRequestResponse(false, true);}">No</button></div></div></div></script></div><div style="display:none;"><script id="xRTML-Toast-template" type="text/html"><div id="rt-powermarketing_toast" class="rt-powermarketing_toast">    <div class="rt-pm_toast_content">        <div class="rt-pm_toast_header"><h3 data-bind="text: title"></h3></div>        <div class="rt-pm_toast_body">            <!-- ko ifnot: displayBanner || destinationUrl -->            <p data-bind="text: text"></p>            <div class="rt-pm_toast_buttons">                <a class="rt-pm_toast_button_close" data-bind="click: close">Close</a>            </div>            <!-- /ko -->            <!-- ko if: displayBanner || destinationUrl -->                <p data-bind="text: text, click: showBanner" class="xrtml-toast-content-clickable"></p>                <div class="rt-pm_toast_buttons">                    <!-- ko if: destinationUrl=="http://www.powermarketing.com/requestChat" -->                        <a class="rt-pm_toast_button_ok" data-bind="click: function(){setTimeout(function() { window.PM.Interactions.Manager._uiManager.forceOpenMenu();}, 10); $data.close('requestChat');}">OK</a>                    <!-- /ko -->                    <!-- ko ifnot: destinationUrl=="http://www.powermarketing.com/requestChat" -->                        <!-- ko if: !displayBanner && destinationUrl && destinationTarget == "_blank" -->                            <!-- ko if: download -->                                <a class="rt-pm_toast_button_ok" data-bind="click: showBanner, attr: { href: destinationUrl, target: destinationTarget }"download>OK</a>                            <!-- /ko -->                            <!-- ko if: !download -->                                <a class="rt-pm_toast_button_ok" data-bind="click: showBanner, attr: { href: destinationUrl, target: destinationTarget }">OK</a>                            <!-- /ko -->                        <!-- /ko -->                        <!-- ko if: displayBanner || !destinationUrl || destinationTarget != "_blank" -->                            <a class="rt-pm_toast_button_ok" data-bind="click: showBanner">OK</a>                        <!-- /ko -->                    <!-- /ko -->                    <a class="rt-pm_toast_button_close" data-bind="click: close">Close</a>                </div>            <!-- /ko -->        </div>    </div></div></script></div><div id="xRTML-Toast-target" class="xRTML-Toast-target" style="position: fixed; bottom: 30px; right: 15px;"></div></body><object id="5a2948f8-cb5b-a88d-bb9b-8ab1d8918597" width="0" height="0" type="application/gas-events-bb"></object><object id="e8f87919-ab5a-809a-b9a8-d9aabab4b4bb" width="0" height="0" type="application/gas-events-uni"></object></html>

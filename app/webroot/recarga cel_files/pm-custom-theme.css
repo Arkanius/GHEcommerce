@@ -1,0 +1,1183 @@
+/*!
+ * PowerMarketing Custom Theme v3.1
+ *
+ *
+ * Copyright 2013 Realtime.co
+ * Part of the Realtime PowerMarketing Web App
+ *
+ * http://www.realtime.co/solutions/powermarketing
+ *
+ * http://resources.powermarketing.com/theme/
+ *
+ *
+ * This file contains all the styling that the PowerMarketing Default Theme applies to the client-side widgets.
+ * 
+ * By seeing what is being applied by the default theme, you can make changes to override the styles and achieve the look and feel that you want.
+ *
+ * Any styling that you do not modify can be deleted from this file, since the default theme already has it. This way you end up with a smaller file, that is easier for you to maintain and edit and that contains only what you changed.
+ *
+ * References to images and in some cases full blocks with the background definitions have been commented to avoid wrong image paths. The text inside the comments is exactly as on the powermarekting default CSS. You can see what is being applied and modify it to your needs.
+ *
+ */
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE HELP REQUEST WIDGET
+   
+   
+   ========================================================================== */
+
+/*
+	THE CONTAINER OF THE WIDGET
+*/
+#pm-help-request {
+	display: block;
+	margin-top: -120px;
+	width: 440px;
+	min-height: 50px;
+	padding: 0;
+	/* position */
+	position: fixed;
+	right: -314px;
+	top: 50%;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+#pm-help-request:hover {
+	padding-left: 0;
+}
+#pm-help-request.pm-requesting-textchat,
+#pm-help-request.pm-requesting-textchat:hover,
+#pm-help-request.pm-requesting-videochat,
+#pm-help-request.pm-requesting-videochat:hover,
+#pm-help-request.pm-requesting-callmenow,
+#pm-help-request.pm-requesting-callmenow:hover {
+	right: 0;
+}
+/*
+	THE INTERACTION STARTER BUTTONS
+*/
+/* the container of the buttons */
+#pm-help-request .pm-help-btns {
+	display: block;
+	width: 375px;
+	margin: 0;
+	padding: 0;
+	/* background */
+	background: none;
+}
+/* general styles for the interaction starter buttons */
+#pm-help-request .pm-help-btns a {
+	display: block;
+	height: 50px;
+	width: 100%;
+	padding: 0;
+	margin: 15px 0 0 0;
+	text-indent: -99999px;
+	text-shadow: none;
+	border-radius: 5px 0 0 5px;
+	background: #093c72 url('images/bb-sprite.png') 0 -150px no-repeat;
+	box-shadow: 0 1px 5px rgba(0,0,0,.1);
+}
+#pm-help-request .pm-help-btns a:hover,
+#pm-help-request .pm-help-btns a.selected {
+	margin-left: -10px;
+}
+#pm-help-request .pm-help-btns .pm-textchat-btn {
+
+}
+#pm-help-request .pm-help-btns .pm-videochat-btn {
+	display: none;
+}
+#pm-help-request .pm-help-btns .pm-callmenow-btn {
+	display: none;
+}
+#pm-help-request .pm-help-btns .not-available {
+	opacity: .5;
+}
+#pm-help-request .pm-help-btns .not-available:hover {
+    color: transparent;
+    text-shadow: none;
+    margin-left: 0;
+}
+
+
+/* the interaction starters */
+#pm-help-request .pm-interaction-starter,
+#pm-help-request .pm-interaction-loading,
+#pm-help-request .pm-interaction-failed,
+#pm-help-request .pm-operator-request {
+	width: 300px;
+	min-height: 130px;
+	padding: 0 15px 10px 15px;
+	left: 110px;
+	border: 1px solid rgb(36, 83, 149);
+	border-radius: 5px 0 0 5px;
+	background: #3977bb;
+	background: -moz-linear-gradient(left,  #3977bb 0%, #0d4074 100%);
+	background: -webkit-linear-gradient(left,  #3977bb 0%,#0d4074 100%);
+	background: -o-linear-gradient(left,  #3977bb 0%,#0d4074 100%);
+	background: linear-gradient(to right,  #3977bb 0%,#0d4074 100%);
+
+}
+#pm-help-request .pm-interaction-starter:after,
+#pm-help-request .pm-interaction-loading:after,
+#pm-help-request .pm-interaction-failed:after {
+	display: none;
+}
+/* the titles */
+#pm-help-request h5 {
+	margin: 0 -15px;
+	padding: 0;
+	height: 24px;
+	text-align: left;
+	text-indent: -99999px;
+	border-bottom: 1px solid #245395;
+	background: url('images/bb-sprite.png') no-repeat 0 0;
+}
+/* the smaller text */
+#pm-help-request p {
+	margin: 0;
+	padding: 5px 0;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+	text-shadow: none;
+}
+#pm-help-request .pm-interaction-starter .pm-noform p {
+	text-align: left;
+	margin: 30px 20px 10px 20px;
+	font-size: 13px;
+}
+/*
+	THE STYLES FOR THE <label> TAG
+*/
+#pm-help-request label {
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 66px;
+	font-size: 12px;
+	line-height: 16px;
+	text-align: left;
+	text-indent: 0;
+	text-shadow: none;
+}
+* + html #pm-help-request label {  
+    width: 40px;
+    margin-right: -40px;
+}
+
+
+/*
+    "Name"
+*/
+#pm-help-request .pm-label-name {
+	color: transparent;
+	text-align: left;
+	text-indent: -99999px;
+	background: url('images/bb-sprite.png') no-repeat 0 -68px;
+}
+
+/*
+	THE STYLES FOR THE <input> TAG
+*/
+#pm-help-request input {
+	display: block;
+	width: 130px;
+	height: 16px;
+	margin: 0 0 16px 0;
+	padding: 0 5px;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: normal;
+	text-align: left;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 1.5px 2.598px 5px 0px rgba(0, 0, 0, 0.078), inset 1.5px 2.598px 1px 0px rgba(0,0,0,.1);
+
+
+}
+
+#pm-help-request input.invalid {
+    border-color: #d14;
+}
+
+/*
+	THE STYLES FOR THE <button> TAG
+*/
+/* the container of the buttons */
+#pm-help-request .pm-buttons {
+    margin: 0 -80px 0 0;
+    padding: 15px 0 5px 0;
+    text-align: left;
+}
+#pm-help-request .pm-failed-screen .pm-buttons {
+    margin: 0 -20px;
+    text-align: center;
+}
+#pm-help-request  .pm-failed-screen p + .pm-buttons {
+    margin-top: 0;
+}
+#pm-help-request button {
+	width: 60px;
+	height: 18px;
+	margin: 10px 8px 0 8px;
+	min-width: 0;
+	color: 	#1a4f88;
+	font-size: 12px;
+	line-height: 18px;
+	text-shadow: none;
+	text-transform: none;
+	font-weight: 500;
+	outline: none;
+	border-radius: 3px;
+	background-image: -moz-linear-gradient( -180deg, rgb(254,192,44) 0%, rgb(255,237,74) 100%);
+	background-image: -webkit-linear-gradient( -180deg, rgb(254,192,44) 0%, rgb(255,237,74) 100%);
+	background-image: -ms-linear-gradient( -180deg, rgb(254,192,44) 0%, rgb(255,237,74) 100%);
+	box-shadow: 1px 2px 1px 0px rgba(0,0,0,.1);
+}
+
+#pm-help-request button:active {
+	box-shadow: 0 -1px 1px rgba(0,0,0,.4);
+}
+
+/*
+	THE LOADING SCREEN
+*/
+#pm-help-request .pm-interaction-loading {
+	margin: 0;
+	width: 300px;
+}
+#pm-help-request .pm-loading-screen .pm-buttons {
+	/* this creates space for the lading spinner */
+	padding-top: 84px;
+	background: transparent url('images/spinner.gif') no-repeat center 30%;
+	background-size: auto;
+}
+#pm-help-request .pm-loading-screen .pm-buttons {
+	margin: 0;
+	text-align: center;
+}
+/*
+	THE INTERACTION STARTER FAILED SCREEN
+*/
+#pm-help-request .pm-interaction-failed {
+	
+}
+#pm-help-request .pm-interaction-failed p,
+#pm-help-request .pm-client-data-sent {
+	text-align: center;
+	padding-top: 0;
+	font-size: 13px;
+	font-weight: normal;
+	color: #fff;
+}
+/*
+	THE SCREEN FOR CONFIRMATION OF INTERACTION INITIATED BY THE POWERMARKETING OPERATOR
+*/
+#pm-help-request .pm-operator-request-screen h5 {
+	margin-bottom: 20px;
+}
+/* the text inside the operator invitation */
+#pm-help-request .pm-operator-request-screen p {
+	text-align: left;
+}
+
+/* the operators name and photo */
+#pm-help-request .pm-request-photo-container {
+    display: none;
+}
+/* the div around the operators photo */
+#pm-help-request .pm-request-photo {
+    width: 180px;
+    height: 100px;
+    text-align: center;
+}
+/* the operators photo */
+#pm-help-request .pm-request-photo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+/* the operators name */
+#pm-help-request .pm-request-name {
+    line-height: 30px;
+    padding: 0 10px;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+
+#pm-help-request .pm-client-data-for-textchat {
+	padding-top: 60px;
+}
+/*
+    "TEXT CHAT REQUEST"
+*/
+#pm-help-request .pm-textchat-starter h5 {
+	position: relative;
+}
+#pm-help-request .pm-textchat-starter h5:after {
+	content: '';
+	position: absolute;
+	top: 36px;
+	left: 65px;
+	width: 220px;
+	height: 36px;
+    color: #fff;
+    text-align: left;
+    text-indent: -99999px;
+    background: url('images/bb-sprite.png') no-repeat 0 -726px;
+}
+/*
+    "CONNECTING"
+*/
+#pm-help-request .pm-interaction-loading h5 {
+	position: relative;
+}
+#pm-help-request .pm-interaction-loading h5:after {
+	content: '';
+	position: absolute;
+	top: 36px;
+	left: 15px;
+	width: 80px;
+	height: 16px;
+    color: #fff;
+    text-align: left;
+    text-indent: -99999px;
+    background: url('images/bb-sprite.png') no-repeat 0 -250px;
+}
+/*
+    "Please try again later."
+*/
+#pm-help-request .pm-interaction-failed .pm-noform p {
+	margin: 15px 0 0 0;
+	padding: 0;
+	color: transparent;
+	text-align: left;
+	text-indent: -99999px;
+	height: 30px;
+    background: url('images/bb-sprite.png') no-repeat 0 -280px;
+}
+
+/*
+    "Would you like to begin a text chat?"
+*/
+#pm-help-request .pm-textChat-request {
+	width: 200px;
+	left: 210px;
+	min-height: 60px;
+}
+#pm-help-request .pm-textChat-request .pm-operator-request-screen h5 {
+	margin-bottom: 15px;
+	background-position: 0 -100px;
+}
+#pm-help-request .pm-textChat-request .pm-operator-request-screen p {
+    color: transparent;
+    text-align: left;
+    text-indent: -99999px;
+    height: 30px;
+    background: url('images/bb-sprite.png') no-repeat 0 -330px;
+}
+#pm-help-request .pm-buttons button {
+	margin: 0 20px 0 0;
+}
+
+
+
+
+#pm-help-request .pm-client-data-for-textchat .pm-buttons {
+	margin: 0;
+	padding: 0;
+}
+#pm-help-request .pm-client-data-for-textchat .pm-button-start {
+	position: absolute;
+	margin: 0;
+	bottom: 26px;
+	right: 20px;
+	background: url('images/bb-sprite.png') no-repeat center -550px;;
+}
+
+
+
+#pm-help-request button {
+    text-shadow: none;
+    overflow: hidden;
+    height: 18px;
+    color: transparent;
+	background: url('images/bb-sprite.png') no-repeat center 0;
+
+	line-height: 60px\9; /* IE8- hack */
+}
+/*
+    "Cancel"
+*/
+#pm-help-request .pm-button-cancel {
+	width: 80px;
+    background-position: center -520px;
+}
+#pm-help-request .pm-interaction-loading .pm-button-cancel {
+	margin: 0;
+}
+/*
+    "Start"
+*/
+#pm-help-request .pm-button-start {    
+    background-position: center -490px;
+}
+/*
+    "OK"
+*/
+#pm-help-request .pm-button-send {    
+    background-position: center -490px;
+}
+/*
+    "Yes"
+*/
+#pm-help-request .pm-button-yes {
+    background-position: center -430px;
+}
+/*
+    "No"
+*/
+#pm-help-request .pm-button-no {
+    background-position: center -460px;
+}
+#pm-help-request .pm-failed-screen.pm-noform .pm-buttons {
+    text-align: center;
+}
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE TOAST
+   
+   
+   ========================================================================== */
+
+/*
+	VERTICAL COLUMN THAT CONTAINS THE TOASTS
+*/
+
+/*
+	TOAST CONTAINER
+*/
+#xRTML-Toast-target .rt-powermarketing_toast {
+	margin: 0 0 20px 0;
+	box-shadow: 0 10px 30px rgba(0,0,0,.25);
+	border: 1px solid rgb(36, 83, 149);
+	border-radius: 5px;
+	background: #3977bb;
+	background: -moz-linear-gradient(left,  #3977bb 0%, #0d4074 100%);
+	background: -webkit-linear-gradient(left,  #3977bb 0%,#0d4074 100%);
+	background: -o-linear-gradient(left,  #3977bb 0%,#0d4074 100%);
+	background: linear-gradient(to right,  #3977bb 0%,#0d4074 100%);
+}
+#xRTML-Toast-target .rt-pm_toast_content {
+    padding: 15px 15px 10px 15px;
+    cursor: default;
+}
+/*
+	TOAST TITLE
+*/
+#xRTML-Toast-target .rt-pm_toast_content h3 {
+	margin: 0 40px 10px 0;
+	font-size: 15px;
+	font-weight: 500;
+}
+/*
+	TOAST TEXT
+*/
+#xRTML-Toast-target .rt-pm_toast_content p {
+	line-height: 16px;
+	font-size: 12px;
+	font-weight: 400;
+	text-shadow: none;
+}
+#xRTML-Toast-target .rt-pm_toast_content p:first-of-type {
+	padding-top: 0;
+	border-top: none;
+}
+/*
+	BUTTONS CONTAINER
+*/
+#xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_buttons {
+	height: auto;
+	margin: 10px 0 0 0;
+	padding: 0;
+	text-align: center;
+	background: none;
+}
+/*
+	OK BUTTON
+*/
+#xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_button_ok {
+	width: 60px;
+	height: 18px;
+	margin: 10px auto;
+	min-width: 0;
+	font-size: 12px;
+	line-height: 18px;
+	text-shadow: none;
+	border-radius: 3px;
+	overflow: hidden;
+	color: transparent;
+	background: url('images/bb-sprite.png') no-repeat center -490px;
+	box-shadow: 1px 2px 1px 0px rgba(0,0,0,.1);
+
+	line-height: 60px\9; /* IE8- hack */
+}
+#xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_button_ok:active {
+	box-shadow: inset 1px -2px 1px 0px rgba(0,0,0,.1);
+}
+/*
+	CLOSE BUTTON
+*/
+#xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_button_close {
+	top: 1px;
+	left: auto;
+	right: 4px;
+	width: 20px;
+	height: 22px;
+	background: url('images/bb-sprite.png') no-repeat -40px -34px;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE BANNERS
+   
+   
+   ========================================================================== */
+body .xrtml-toast-banner-close {
+	top: -30px;
+	right: -30px;
+    width: 20px;
+    height: 22px;
+    background: url('images/bb-sprite.png') no-repeat -40px -34px;
+}
+
+
+
+
+/* ==========================================================================
+
+
+   THE TEXT CHAT
+   
+   
+   ========================================================================== */
+
+/*
+	THE TEXT-CHAT CONTAINER
+*/
+#pm-textchat-container {
+	width: 374px;
+	height: 360px;
+	padding: 50px 16px 16px;
+
+	left: 30px;
+	bottom: 20px;
+
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.3em;
+
+	box-shadow: 0 6px 20px -2px rgba(0,0,0,.3), 0 2px 10px rgba(0,0,0,.3);
+
+	border: 1px solid rgb(36, 83, 149);
+	border-radius: 5px;
+	background: #3977bb;
+	background: -moz-linear-gradient(left,  #3977bb 0%, #0d4074 100%);
+	background: -webkit-linear-gradient(left,  #3977bb 0%,#0d4074 100%);
+	background: -o-linear-gradient(left,  #3977bb 0%,#0d4074 100%);
+	background: linear-gradient(to right,  #3977bb 0%,#0d4074 100%);
+}
+/* pm-minimized text-chat container */
+	#pm-textchat-container.pm-minimized {
+		height: 25px;
+		padding-top: 0;
+		padding-bottom: 0;
+		bottom: 20px;
+		overflow: hidden;
+	}
+#pm-textchat-container .pm-textchat {
+	display: block;
+}
+#pm-textchat-container .pm-textchat-header {
+	height: 24px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 1px solid #245395;
+	background: #1461b0;
+	background-image: -webkit-linear-gradient(90deg, #1571b0 0%, #0e3e70 100%);
+	background-image: -o-linear-gradient(90deg, #1571b0 0%, #0e3e70 100%);
+	background-image:linear-gradient(90deg, #1571b0 0%, #0e3e70 100%);
+}
+/*
+	THE CLOSE BUTTON
+*/
+#pm-textchat-container .pm-textchat-close {
+
+    top: 1px;
+    left: auto;
+    right: 4px;
+    width: 20px;
+    height: 22px;
+    background: url('images/bb-sprite.png') no-repeat -40px -34px;
+}
+/*
+	THE MINIMIZE / MAXIMIZE  BUTTON
+*/
+#pm-textchat-container .pm-textchat-minimize {
+    top: 1px;
+    right: 26px;
+    width: 20px;
+    height: 22px;
+    background: url('images/bb-sprite.png') no-repeat 0 -34px;
+}
+/* the button when the text-chat is pm-minimized */
+	#pm-textchat-container.pm-minimized .pm-textchat-minimize {
+		background-position: -20px -34px;
+	}
+/*
+	THE TEXT-CHAT TITLE
+*/
+#pm-textchat-container .pm-text-chat-title {
+	display: block;
+	height: 24px;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	/* position */
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	/* hide text */
+	text-align: left;
+	text-indent: -99999px;
+	/* background */
+
+    background: url('images/bb-sprite.png') no-repeat 0 0;
+}
+
+/*
+    THE OPERATOR PHOTO AND NAME
+*/
+#pm-textchat-container .pm-textchat-operator-photo-container {
+    display: block;
+    position: absolute;
+    height: 24px;
+    top: 26px;
+    left: 15px;
+    right: 15px;
+}
+/* the div around the operators photo */
+#pm-textchat-container .pm-textchat-operator-photo {
+    display: none;
+}
+/* the operators photo */
+#pm-textchat-container .pm-textchat-operator-photo img {
+    height: auto;
+    max-height: 100%;
+}
+/* the operators name */
+#pm-textchat-container .pm-textchat-operator-name {
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: left;
+}
+/* the chat ID */
+#pm-textchat-container .pm-textchat-id {
+	position: absolute;
+	top: 0;
+	right: 0;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: right;
+}
+
+/*
+	THE CONVERSATION CONTAINER
+*/
+#pm-textchat-container .pm-textchat-shoutscontainer {
+    padding: 10px;
+    height: 230px;
+    position: relative;
+    border-radius: 4px;
+    background: #edf0f5;
+    box-shadow: none;
+    overflow-x: hidden;
+}
+
+/*
+	Custom scroll bar for the conversation container - ONLY WEBKIT 
+*/
+	#pm-textchat-container .pm-textchat-shoutscontainer::-webkit-scrollbar {
+		width: 8px;
+		background: #dadde2;
+		box-shadow: none;
+		border-radius: 6px;
+	}
+	#pm-textchat-container .pm-textchat-shoutscontainer::-webkit-scrollbar-track {
+		background: transparent;
+		box-shadow: none;
+	}
+	#pm-textchat-container .pm-textchat-shoutscontainer::-webkit-scrollbar-thumb {
+		background: #666666;
+		border: none;
+		border: 2px solid #dadde2;
+		border-radius: 6px;
+		box-shadow: none;
+	}
+	/* the pm-minimized conversation container */
+	#pm-textchat-container.pm-minimized .pm-textchat-shoutscontainer {
+		margin-top: 50px;
+	}
+/*
+    THE MESSAGES WRAPPER
+*/
+#pm-textchat-container .pm-textchat-wrapper {
+    
+}
+/*
+	THE MESSAGE CONTAINER
+*/
+#pm-textchat-container .pm-textchat-shout {
+	display: block;
+	position: relative;
+	min-width: 100px;
+	max-width: 80%;
+	margin: 10px 0;
+	padding: 20px 14px 12px;
+	clear: both;
+	/* background */
+	background: #f5f5f5;
+	/* rounded corners */
+    border: none;
+    border-radius: 12px;
+	background: #fff;
+	background: -moz-linear-gradient(top,  #ffffff 0%, #d9dadc 100%);
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#d9dadc 100%);
+	background: -o-linear-gradient(top,  #ffffff 0%,#d9dadc 100%);
+	background: linear-gradient(to bottom,  #ffffff 0%,#d9dadc 100%);
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,.15);
+}
+/* messages from the operator */
+#pm-textchat-container .pm-textchat-shout.operator {
+	border-top-left-radius: 0;
+	float: left;
+	*float: none; /* IE7 */
+	*width: 75%; /* IE7 */
+}
+#pm-textchat-container .pm-textchat-shout.operator:before {
+	content: '';
+	position: absolute;
+	bottom: auto;
+	top: -3px;
+	left: 0;
+	border-right: none;
+	border-bottom: none;
+	border-left: 16px solid #fff;
+	border-top: 3px solid transparent;
+}
+/* messages from the visitor */
+#pm-textchat-container .pm-textchat-shout.visitor {
+	float: right;
+	border-bottom-right-radius: 0;
+	*width: 75%; /* IE7 */
+}
+#pm-textchat-container .pm-textchat-shout.visitor:before {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	right: 0;
+	border-left: none;
+	border-top: none;
+	border-right: 16px solid #fff;
+	border-right: 16px solid rgba(217,218,220,1);
+	border-bottom: 4px solid transparent;
+}
+/*
+	THE MESSAGE SENDER
+*/
+#pm-textchat-container .pm-textchat-shout-username {
+    display: block;
+    position: initial;
+    bottom: 2px;
+    right: 5px;
+    margin: -22px 0 0 0;
+    padding: 0 5px 0 0;
+    color: #0075b0;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+/* the operator and client tags */
+#pm-textchat-container .pm-textchat-shout-username .username {
+	height: 14px;
+	width: 100px;
+	margin: 0;
+	padding: 0;
+	line-height: 14px;
+	font-size: 9px;
+	visibility: visible;
+	position: absolute;
+	top: 2px;
+	left: 14px;
+	color: #6092cb;
+	text-align: right;
+	text-transform: none;
+	border-bottom: 1px solid #d0d0d0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/* 
+	THE TIME STAMP
+*/
+#pm-textchat-container .pm-textchat-shout-username .time {
+	position: absolute;
+	bottom: 0;
+	right: 6px;
+	font-weight: normal;
+	font-size: 9px;
+	color: #3976ba;
+	text-shadow: none;
+}
+#pm-textchat-container .visitor .pm-textchat-shout-username {
+	float: right;
+	text-align: right;
+}
+
+
+#pm-textchat-container .visitor .pm-textchat-shout-username .username {
+	left: auto;
+	right: 6px;
+	text-align: left;
+	color: transparent;
+	text-indent: -99999px;
+}
+#pm-textchat-container .visitor .pm-textchat-shout-username .username:after {
+	content: 'Voc\00EA';
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #6092cb;
+	text-indent: 0;
+}
+#pm-textchat-container .visitor .pm-textchat-shout-username .time {
+	right: auto;
+	left: 6px;
+}
+
+
+/*
+	THE MESSAGE
+*/
+#pm-textchat-container .pm-textchat-shout-message {
+    color: #636363;
+}
+#pm-textchat-container .pm-textchat-shout-message a {
+	color: #235b96;
+}
+/*
+    TEXT-CHAT ENDED AND NOW TALKING TO A NEW OPERATOR
+*/
+#pm-textchat-container .pm-textchat-new-operator {
+
+}
+#pm-textchat-container .pm-textchat-new-operator  p {
+	background-color: #235b96;
+}
+/*
+	THE USER IS TYPING
+*/
+#pm-textchat-container .pm-textchat-typing {
+	height: 11px;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+}
+/*
+	THE CONNECTION WAS LOST AND IS RECONNECTING
+*/
+#pm-textchat-container .pm-connecting {
+	background: #235b96 url('images/spinner-s.gif') 4px center no-repeat;
+}
+#pm-textchat-container .pm-connecting p {
+    margin: 0;
+}
+/*
+	THE FEEDBACK MESSAGES - disconnected, etc.
+*/
+#pm-textchat-container .pm-user-feedback {
+
+}
+#pm-textchat-container .pm-user-feedback p {
+    background: #235b96;
+}
+/*
+	THE INPUT FIELD
+*/
+#pm-textchat-container .pm-textchat-shoutform {
+	position: relative;
+	height: 86px;
+	padding: 0;
+	width: 100%;
+	margin: 0;
+	background: none;
+
+
+
+
+
+}
+
+/* pm-minimized input field */
+	#pm-textchat-container.pm-minimized .pm-textchat-shoutform {
+		visibility: hidden;
+	}
+/* the textarea to write the message */
+#pm-textchat-container .pm-textchat-shoutform-shoutcontent {
+    display: block;
+    position: relative;
+    float: none;
+    height: 50px;
+    line-height: 16px;
+    width: 340px;
+    margin: 12px 0 0 0;
+    padding: 8px;
+    overflow: auto;
+    /* text */
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    -webkit-transition: none;
+       -moz-transition: none;
+         -o-transition: none;
+            transition: none;
+	border: 1px solid rgb(255, 255, 255);
+	border-radius: 3px;
+	background: rgb(237, 240, 245);
+	box-shadow: 1.5px 2.598px 5px 0px rgba(0, 0, 0, 0.078), inset 1.5px 2.598px 1px 0px rgba(0,0,0,.1);
+}
+
+
+/* disabled textarea */
+#pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled {
+    background: #62bbe0;
+}
+#pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled::-webkit-input-placeholder {
+	background: none;
+}
+#pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled:-moz-placeholder {
+	background: #fff;
+}
+#pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled:-ms-input-placeholder {
+	background: #fff;
+}
+#pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled::placeholder {
+	background: none;
+}
+/*
+	Custom scroll bar for the textarea - ONLY WEBKIT 
+*/
+	#pm-textchat-container .pm-textchat-shoutform-shoutcontent::-webkit-scrollbar {
+		width: 8px;
+		background: none;
+		box-shadow: none;
+	}
+	#pm-textchat-container .pm-textchat-shoutform-shoutcontent::-webkit-scrollbar-track{
+		background: transparent;
+	}
+	#pm-textchat-container .pm-textchat-shoutform-shoutcontent::-webkit-scrollbar-thumb{
+		background: #accd56;
+		border: none;
+		border-radius: 6px;
+		box-shadow: 0 1px 2px rgba(0,0,0,.4);
+		box-shadow: none;
+	}
+
+
+
+
+
+
+/*
+    "Chatting with a new operator."
+*/
+#pm-textchat-container .pm-textchat-new-operator p {
+    color: transparent;
+    text-align: left;
+    text-indent: -99999px;
+    background: #235b96 url('images/bb-sprite.png') no-repeat center -620px;
+}
+/*
+    "Connecting"
+*/
+#pm-textchat-container .pm-connecting p {
+    color: transparent;
+    text-align: left;
+    text-indent: -99999px;
+    background: transparent url('images/bb-sprite.png') no-repeat center -654px;
+}
+/*
+    "Disconnected"
+*/
+#pm-textchat-container .pm-user-feedback p {
+    color: transparent;
+    text-align: left;
+    text-indent: -99999px;
+    width: 80px;
+    background: #235b96 url('images/bb-sprite.png') no-repeat center -680px;
+}
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   END TEXT CHAT AND VIDEO CHAT CONFIRMATION DIALOGS 
+   
+   
+   ========================================================================== */
+   
+#pm-textchat-container .pm-end-textchat,
+#pm-videochat_publisher_placeholder .pm-end-videochat {
+	display: block;
+	min-height: 55px;
+	width: 60%;
+	height: auto;
+	padding: 10px 0;
+	bottom: 38%;
+	left: 20%;
+	color: #fff;
+	font-weight: normal;
+	border: 1px solid rgb(36, 83, 149);
+	border-radius: 5px;
+	background: #245395;
+	background-image: -moz-linear-gradient( 0deg, #3977bb 0%, #0d4074 100%);
+	background-image: -webkit-linear-gradient( 0deg, #3977bb 0%, #0d4074 100%);
+	background-image: -ms-linear-gradient( 0deg, #3977bb 0%, #0d4074 100%);
+	/* shadow */
+	box-shadow: 0 5px 10px rgba(0,0,0,.4), 0 16px 8px -15px rgba(0,0,0,.4);
+
+}
+#pm-textchat-container .pm-end-textchat button,
+#pm-videochat_publisher_placeholder .pm-end-videochat button {
+	width: 60px;
+	height: 18px;
+	margin: 10px 8px 0 8px;
+	min-width: 0;
+	color: 	#1a4f88;
+	font-size: 12px;
+	line-height: 18px;
+	text-shadow: none;
+	text-transform: none;
+	font-weight: 500;
+	outline: none;
+	border-radius: 3px;
+	background-image: -moz-linear-gradient( -180deg, rgb(254,192,44) 0%, rgb(255,237,74) 100%);
+	background-image: -webkit-linear-gradient( -180deg, rgb(254,192,44) 0%, rgb(255,237,74) 100%);
+	background-image: -ms-linear-gradient( -180deg, rgb(254,192,44) 0%, rgb(255,237,74) 100%);
+	box-shadow: 1px 2px 1px 0px rgba(0,0,0,.1);
+}
+
+#pm-textchat-container .pm-end-textchat button:active,
+#pm-videochat_publisher_placeholder .pm-end-videochat button:active {
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+}
+
+
+
+
+/*
+    "Do you want to end the text chat?"
+*/
+#pm-textchat-container .pm-end-textchat p {
+    color: transparent;
+    text-align: left;
+    text-indent: -99999px;
+    height: 30px;
+	background: url('images/bb-sprite.png') no-repeat 20px -380px;
+}
+
+
+
+/* ==========================================================================
+
+
+   TEXT CHAT - CONFIRMATION DIALOG BUTTONS
+   
+   
+   ========================================================================== */
+
+#pm-textchat-container .pm-end-textchat button,
+#pm-videochat_publisher_placeholder .pm-end-videochat button {
+    text-shadow: none;
+    overflow: hidden;
+    height: 18px;
+    color: transparent;
+	background: url('images/bb-sprite.png') no-repeat center 0;
+
+	line-height: 60px\9; /* IE8- hack */
+}
+/*
+    "Yes"
+*/
+#pm-textchat-container .pm-end-textchat .pm-button-yes,
+#pm-videochat_publisher_placeholder .pm-end-videochat  .pm-button-yes {
+    background-position: center -430px;
+}
+/*
+    "No"
+*/
+#pm-textchat-container .pm-end-textchat .pm-button-no,
+#pm-videochat_publisher_placeholder .pm-end-videochat  .pm-button-no {
+    background-position: center -460px;
+}
+.pm-rating-container {
+    width: 225px;
+}
+
+
+
+

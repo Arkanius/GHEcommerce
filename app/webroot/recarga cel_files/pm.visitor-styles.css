@@ -1,0 +1,1975 @@
+/*!
+ * PowerMarketing Default Theme v3.1
+ *
+ *
+ * Copyright 2013 Realtime.co
+ * Part of the Realtime PowerMarketing Web App
+ *
+ * http://www.realtime.co/solutions/powermarketing
+ *
+ * http://resources.powermarketing.com/theme/
+ *
+ */
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE HELP REQUEST WIDGET
+   
+   
+   ========================================================================== */
+
+/*
+	THE CONTAINER OF THE WIDGET
+*/
+.pm-help-request {
+	display: block;
+	margin-top: -120px;
+	width: 280px;
+	min-height: 100px;
+	padding: 0 0 0 20px;
+	/* position */
+	position: fixed;
+	right: -230px;
+	top: 50%;
+	z-index: 10010;
+	/* text */
+	font-size: 12px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: #fff;
+	/* rounded corners */
+	border-radius: 22px 0 0 22px;
+	/* background */
+	background: #00a3d9 url('../images/realtime-help.svg') 9px center;
+	background: rgba(0, 117, 176, 0);
+	background-image: url('../images/realtime-help.svg'), -webkit-linear-gradient(85deg, rgba(0, 117, 176, 0.93) 0%, rgba(0, 168, 224, 0.93) 30%, rgba(0, 117, 176, 0.93) 100%); /* Chrome10+,Safari5.1+ */
+	background-image: url('../images/realtime-help.svg'),    -moz-linear-gradient(85deg, rgba(0, 117, 176, 0.93) 0%, rgba(0, 168, 224, 0.93) 30%, rgba(0, 117, 176, 0.93) 100%); /* FF3.6+ */
+	background-image: url('../images/realtime-help.svg'), 	   -o-linear-gradient(85deg, rgba(0, 117, 176, 0.93) 0%, rgba(0, 168, 224, 0.93) 30%, rgba(0, 117, 176, 0.93) 100%); /* Opera 11.10+ */
+	background-image: url('../images/realtime-help.svg'), 		  linear-gradient(15deg, rgba(0, 117, 176, 0.93) 0%, rgba(0, 168, 224, 0.93) 30%, rgba(0, 117, 176, 0.93) 100%); /* W3C */
+	background-position: 9px center, 0 0;
+	background-repeat: no-repeat;
+	background: transparent url('../images/bg-pm-help-request-ie8.png') 0 center no-repeat\9;
+	/* shadow */
+	box-shadow: 0 8px 30px -5px rgba(0,0,0,.3), -10px 2px 12px -10px rgba(0,0,0,.2);
+	/* animate the expanding of the widget when clicked */
+	-webkit-transition: right .2s ease-in-out 0s, padding .15s ease-in-out 0s;
+	   -moz-transition: right .2s ease-in-out 0s, padding .15s ease-in-out 0s;
+		 -o-transition: right .2s ease-in-out 0s, padding .15s ease-in-out 0s;
+			transition: right .2s ease-in-out 0s, padding .15s ease-in-out 0s;
+	/* remove gray overlay when tapping on iOS */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.pm-help-request:hover {
+	right: -218px;
+	padding-left: 30px;
+	-webkit-transition-delay: 0s;
+	   -moz-transition-delay: 0s;
+		 -o-transition-delay: 0s;
+			transition-delay: 0s;
+}
+.pm-help-request.pm-requesting-textchat,
+.pm-help-request.pm-requesting-textchat:hover,
+.pm-help-request.pm-requesting-videochat,
+.pm-help-request.pm-requesting-videochat:hover,
+.pm-help-request.pm-requesting-callmenow,
+.pm-help-request.pm-requesting-callmenow:hover {
+	right: 0;
+	padding-left: 30px;
+}
+/*
+	THE INTERACTION STARTER BUTTONS
+*/
+/* the container of the buttons */
+.pm-help-request .pm-help-btns {
+	display: block;
+	width: 375px;
+	margin: 0;
+	padding: 0 0 0 5px;
+	/* background */
+	background: none;
+}
+/* general styles for the interaction starter buttons */
+.pm-help-request .pm-help-btns a {
+	display: block;
+	height: 50px;
+	width: 100%;
+	padding: 0;
+	margin: 5px 0;
+	/* text */
+	font-size: 13px;
+	line-height: 50px;
+	text-align: left;
+	text-indent: 48px;
+	font-weight: 400;
+		/* hide text until :hover */
+	color: #fff;
+	text-shadow: none;
+	cursor: pointer;
+	border-radius: 16px 0 0 16px;
+	/* background */
+	background: transparent url('../images/pm-help-tabs.png') center 0 no-repeat; /* IE8 - */
+	background: rgba(98, 187, 224, .9) url('../images/pm-help-icons.svg') center 0 no-repeat; /* modern browsers */
+	/* shadow */
+	box-shadow: -10px 0 15px -5px rgba(0,0,0,.3), 0 1px 5px rgba(0,0,0,.1);
+	/* transitions */
+	-webkit-transition: margin .2s ease-in-out 0s;
+	   -moz-transition: margin .2s ease-in-out 0s;
+		 -o-transition: margin .2s ease-in-out 0s;
+		 	transition: margin .2s ease-in-out 0s;
+}
+.pm-help-request .pm-help-btns a:hover,
+.pm-help-request .pm-help-btns a.selected {
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,.1);
+	margin-left: -80px;
+}
+.pm-help-request .pm-help-btns .pm-textchat-btn {
+	background-position: 0 0;
+}
+.pm-help-request .pm-help-btns .pm-videochat-btn {
+	background-position: 0 -50px;
+}
+.pm-help-request .pm-help-btns .pm-callmenow-btn {
+	background-position: 0 -100px;
+	text-indent: 45px;
+}
+.pm-help-request .pm-help-btns .not-available {
+	opacity: .5;
+	/* disable click or touch */
+	pointer-events: none;
+	-webkit-touch-callout: none;
+			touch-callout: none;
+	cursor: default;
+	background-color: transparent;
+	box-shadow: none;
+	/* IE8- */
+	background-color: transparent\0/;
+	background-image: url('../images/pm-help-tabs-notavailable.png')\9;
+}
+.pm-help-request .pm-help-btns .not-available:hover {
+    color: transparent;
+    text-shadow: none;
+    margin-left: 0;
+}
+.pm-help-request .pm-help-btns .not-selected {
+	opacity: .3;
+	/* disable click or touch */
+	pointer-events: none;
+	-webkit-touch-callout: none;
+			touch-callout: none;
+}
+/* adjustments for when there is only one button */
+.pm-help-request .pm-help-btns a:only-child {
+    margin-top: 25px;
+}
+
+/* the interaction starters */
+.pm-help-request .pm-interaction-starter,
+.pm-help-request .pm-interaction-loading,
+.pm-help-request .pm-interaction-failed,
+.pm-help-request .pm-operator-request {
+	margin: 0;
+	width: 190px;
+	min-height: 160px;
+	padding: 10px 20px;
+	/* position */
+	position: absolute;
+	left: 80px;
+	top: 0;
+	/* round corner */
+	border-bottom-left-radius: 22px;
+	/* background */
+	    background: transparent url('../images/bg-pm-screens.png') no-repeat 0 bottom; /* IE8- */
+    	background: rgba(0,163,217,1); /* IE9 */
+    	/* modern browsers */
+    	background-image: -webkit-linear-gradient(25deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* Chrome10+,Safari5.1+ */
+    	background-image:    -moz-linear-gradient(25deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* FF3.6+ */
+    	background-image: 	   -o-linear-gradient(25deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* Opera 11.10+ */
+    	background-image: 		  linear-gradient(25deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* W3C */
+	/* shadow */
+	box-shadow: -2px 2px 15px -5px rgba(0,0,0,.4), -8px 0 10px -8px rgba(0,0,0,.3);
+
+}
+.pm-help-request .pm-interaction-starter:after,
+.pm-help-request .pm-interaction-loading:after,
+.pm-help-request .pm-interaction-failed:after {
+	content: '';
+	position: absolute;
+	opacity: .95;
+	top: 0;
+	left: -24px;
+	width: 25px;
+	height: 25px;
+	background: none;/* hide in IE8 */
+	background: rgba(0,0,0,0) url('../images/left-fold.png') no-repeat right top; /* show in modern browsers */
+	background-size: 15px 15px;
+}
+/* the titles */
+.pm-help-request h5{
+	margin: 0;
+	padding: 5px 0 0 0;
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+/* the smaller text */
+.pm-help-request p{
+	margin: 0;
+	padding: 5px 0;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+	text-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+.pm-help-request .pm-interaction-starter .pm-noform p {
+	text-align: center;
+	margin: 30px 20px 10px 20px;
+	font-size: 13px;
+}
+/*
+	THE STYLES FOR THE <label> TAG
+*/
+.pm-help-request label{
+	display: block;
+	margin: 5px 0 0 0;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 25px;
+	text-align: left;
+	text-indent: 5px;
+	text-shadow: 0 -1px 1px rgba(0,0,0,.1);
+}
+/*
+	THE STYLES FOR THE <input> TAG
+*/
+.pm-help-request input {
+	display: block;
+	width: 170px;
+	height: 20px;
+	margin: 0;
+	padding: 5px 10px;
+	/* text */
+	color: #333;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	text-align: left;
+	/* rounded corners */
+	border-radius: 15px;
+	border: 0;
+	/* background */
+	background: transparent url('../images/bg-pm-input.png') no-repeat 0 0; /* IE8- */
+	/* shadow */
+	box-shadow: 0 -1px 2px rgba(0,0,0,.4), 0 1px 1px rgba(255,255,255,.3);
+	-webkit-appearance: none; /* this fixes inputs in iOS */
+}
+.pm-help-request input:focus {
+	outline: none;
+}
+.pm-help-request input.invalid {
+    border-color: #d14;
+	border: 1px solid #d14; /* IE8- */
+	border: 0px solid rgba(0,0,0,0); /* hide border in modern browsers */
+	box-shadow: inset 0 0px 0 1px #d14; /* show box-shadow instead of border in modern browsers */|
+}
+/* name input */
+.pm-help-request .pre-request-form input[type=text] {
+	padding-left: 30px;
+	width: 150px;
+	/* IE8- */
+	background: transparent url('../images/bg-pm-input.png') no-repeat 0 0;
+	/* modern browsers */
+	background: rgba(255,255,255,1) url('../images/pm-sprite.svg') no-repeat 10px -122px;
+}
+/* email input */
+.pm-help-request .pre-request-form input[type=email] {
+	padding-left: 30px;
+	width: 150px;
+	/* IE8- */
+	background: transparent url('../images/bg-pm-input.png') no-repeat 0 0;
+	/* modern browsers */
+	background: rgba(255,255,255,1) url('../images/pm-sprite.svg') no-repeat 10px -90px;
+}
+/* telephone input */
+.pm-help-request .pre-request-form input[type=tel] {
+	padding-left: 30px;
+	width: 150px;
+	/* IE8- */
+	background: transparent url('../images/bg-pm-input.png') no-repeat 0 0;
+	/* modern browsers */
+	background: rgba(255,255,255,1) url('../images/pm-sprite.svg') no-repeat 10px -162px;
+}
+/*
+	THE STYLES FOR THE <button> TAG
+*/
+/* the container of the buttons */
+.pm-help-request .pm-buttons {
+    margin: 0 -20px 0 0;
+    padding: 15px 0 5px 0;
+    text-align: left;
+}
+.pm-help-request .pm-failed-screen .pm-buttons {
+    margin: 0 -20px;
+    text-align: center;
+}
+.pm-help-request  .pm-failed-screen p + .pm-buttons {
+    margin-top: 40px;
+}
+.pm-help-request button {
+	height: 25px;
+	margin: 5px 16px 0 0;
+	padding: 0;
+	min-width: 85px;
+	/* text */
+	color: #fff;
+	font-size: 13px;
+	line-height: 25px;
+	text-shadow: 0 -1px 2px rgba(0,0,0,.1);
+	text-transform: uppercase;
+	font-weight: 600;
+	-webkit-font-smoothing: antialiased;
+		    font-smoothing: antialiased;
+	/* border */
+	border: 0;
+	border-radius: 15px;
+	cursor: pointer;
+	/* background */
+	background-color: transparent;
+	background-image: url('../images/bg-help-buttons.png'); /* fallback para IE8- */
+	background-image: -webkit-linear-gradient( #accd56 0%, #88aa32 90%); /* Chrome10+,Safari5.1+ */
+	background-image:    -moz-linear-gradient( #accd56 0%, #88aa32 90%); /* FF3.6+ */
+	background-image: 	   -0-linear-gradient( #accd56 0%, #88aa32 90%); /* Opera 11.10+ */
+	background-image: 		  linear-gradient( #accd56 0%, #88aa32 90%); /* W3C */
+	background-repeat: no-repeat;
+	/* shadow */
+	box-shadow: 0 1px 2px rgba(0,0,0,.4), inset 0 1px 1px -1px rgba(255,255,255,.5);
+	/* cursor */
+	cursor: pointer;
+}
+.pm-help-request button:disabled,
+.pm-help-request button[disabled] {
+    text-shadow: none;
+    background-color: #fff;
+    background-color: rgba(255,255,255,.7);
+    background-image: none;
+}
+.pm-help-request button:active {
+	box-shadow: 0 -1px 1px rgba(0,0,0,.4);
+}
+/* remove right margin from the last button */
+.pm-help-request button:last-of-type {
+	margin-right: 0;
+}
+/* the cancel button */
+.pm-help-request .pm-button-cancel {
+	text-shadow: none;
+	background: rgba(0,0,0,.2);
+	box-shadow: none;
+}
+.pm-help-request .pm-button-cancel:hover {
+	background: rgba(0,0,0,.3);
+}
+/*
+	THE LOADING SCREEN
+*/
+.pm-help-request .pm-interaction-loading {
+	margin: 0;
+	width: 190px;
+}
+.pm-help-request .pm-loading-screen .pm-buttons{
+	/* this creates space for the lading spinner */
+	padding-top: 110px;
+	/* the loading spinner */
+	background: transparent url('../images/pm-loading.gif') no-repeat center 30%; /* IE8- */
+	background: rgba(0,0,0,0) url('../images/pm-loading_@2x.gif') no-repeat center 30%; /* modern browsers */
+	background-size: 60px;
+}
+.pm-help-request .pm-loading-screen .pm-buttons {
+	margin: 0;
+	text-align: center;
+}
+/*
+	THE INTERACTION STARTER FAILED SCREEN
+*/
+.pm-help-request .pm-interaction-failed {
+	
+}
+.pm-help-request .pm-interaction-failed p,
+.pm-help-request .pm-client-data-sent {
+	text-align: center;
+	padding-top: 30%;
+	font-size: 13px;
+	font-weight: normal;
+	color: #fff;
+}
+/*
+	THE SCREEN FOR CONFIRMATION OF INTERACTION INITIATED BY THE POWERMARKETING OPERATOR
+*/
+.pm-help-request .pm-operator-request-screen h5 {
+	margin-bottom: 20px;
+}
+/* the text inside the operator invitation */
+.pm-help-request .pm-operator-request-screen p {
+	text-align: center;
+	font-size: 13px;
+	font-weight: 400;
+}
+/* make the no button more subtle */
+.pm-help-request .pm-operator-request-screen .pm-button-no {
+	text-shadow: none;
+	background: rgba(0,0,0,.2);
+	box-shadow: none;
+}
+/* the operators name and photo */
+.pm-help-request .pm-request-photo-container {
+    display: none;
+}
+/* the div around the operators photo */
+.pm-help-request .pm-request-photo {
+    width: 180px;
+    height: 100px;
+    text-align: center;
+}
+/* the operators photo */
+.pm-help-request .pm-request-photo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+/* the operators name */
+.pm-help-request .pm-request-name {
+    line-height: 30px;
+    padding: 0 10px;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE TOAST
+   
+   
+   ========================================================================== */
+
+/*
+	VERTICAL COLUMN THAT CONTAINS THE TOASTS
+*/
+.xRTML-Toast-target {
+	position: fixed;
+	right: 20px;
+	bottom: 0px;
+	z-index: 10020;
+	-webkit-font-smoothing: subpixel-antialiased;
+	   -moz-font-smoothing: subpixel-antialiased;
+	        font-smoothing: subpixel-antialiased;
+}
+/*
+	TOAST CONTAINER
+*/
+.xRTML-Toast-target .rt-powermarketing_toast{
+	position: relative;
+    display: block;
+    width: 300px;
+    margin: 0 0 50px 0;
+    padding: 0;
+    z-index: 0;
+    /* text */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #fff;
+    text-align: left;
+    /* rounded corners */
+    border-radius: 20px;
+	/* background */
+	background: #0075b0;
+	background-image: -webkit-linear-gradient(80deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* Chrome10+,Safari5.1+ */
+	background-image:    -moz-linear-gradient(20deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* FF3.6+ */
+	background-image: 	   -o-linear-gradient(80deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* Opera 11.10+ */
+	background-image: 		  linear-gradient(20deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* W3C */
+	/* shadow */
+	box-shadow: 0 30px 60px 10px rgba(0,0,0,.3), 0 0 10px rgba(0,0,0,.3);
+	/* animations */
+	-webkit-animation: fadeInUp .5s ease-out 0s 1 backwards;
+	   -moz-animation: fadeInUp .5s ease-out 0s 1 backwards;
+	        animation: fadeInUp .5s ease-out 0s 1 backwards;
+}
+.xRTML-Toast-target .rt-pm_toast_content{
+    padding: 15px 15px 10px 15px;
+    cursor: default;
+}
+/*
+	TOAST TITLE
+*/
+.xRTML-Toast-target .rt-pm_toast_content h3{
+	margin: 0 40px 10px 0;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 500;
+}
+/*
+	TOAST TEXT
+*/
+.xRTML-Toast-target .rt-pm_toast_content p{
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	font-weight: 400;
+	text-shadow: 0 -1px 1px rgba(0,0,0,.1);
+}
+.xRTML-Toast-target .rt-pm_toast_content p:first-of-type{
+	/* dotted line */
+	padding-top: 10px;
+	border-top: 1px solid rgba(255,255,255,.5);
+}
+/*
+	BUTTONS CONTAINER
+*/
+.xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_buttons{
+	height: auto;
+	margin: 15px -15px -45px 110px;
+	padding: 10px 0 25px 0;
+	text-align: center;
+	background: none; /* IE8- */
+	background: rgba(0,0,0,0) url('../images/bg-btn-container.png') no-repeat center bottom; /* modern browsers */
+}
+/* retina image */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		.xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_buttons{
+		    background-image: url('../images/bg-btn-container_@2x.png');
+		    background-size: 167px 90px;
+		}
+	}
+/*
+	OK BUTTON
+*/
+.xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_button_ok{
+	display: block;
+	width: 112px;
+	height: 30px;
+	margin: 0 auto 20px auto;
+	padding: 0;
+	/* text */
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 30px;
+    text-decoration: none;
+    /* rounded corners */
+    border: none;
+    border-radius: 15px;
+    /* background */
+    background-image: url('../images/bg-button.png'); /* fallback para IE8- */
+    background-image: -webkit-linear-gradient( #accd56 0%, #88aa32 90%); /* Chrome10+,Safari5.1+ */
+	background-image:    -moz-linear-gradient( #accd56 0%, #88aa32 90%); /* FF3.6+ */
+	background-image: 	   -0-linear-gradient( #accd56 0%, #88aa32 90%); /* Opera 11.10+ */
+	background-image: 		  linear-gradient( #accd56 0%, #88aa32 90%); /* W3C */
+	background-repeat: no-repeat;
+	/* shadow */
+	box-shadow: 0 1px 2px rgba(0,0,0,.4), inset 0 1px 1px -1px rgba(255,255,255,.5);
+	/* cursor */
+	cursor: pointer;
+}
+.xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_button_ok:active{
+	line-height: 32px;
+	box-shadow: 0 -1px 1px rgba(0,0,0,.4);
+}
+/*
+	CLOSE BUTTON
+*/
+.xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_button_close{
+	width: 70px;
+	height: 38px;
+	/* position button at the corner */
+	position: absolute;
+	top: 0;
+	right: 8px;
+	/* hide the text inside the button */
+	text-align: left;
+	text-indent: -99999px;
+	/* background */
+	background: transparent url('../images/bg-close.png') no-repeat center top;
+	background-size: 7 1px 38px;
+	/* cursor */
+	cursor: pointer;
+}
+/* retina image */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		.xRTML-Toast-target .rt-pm_toast_content .rt-pm_toast_button_close{
+		    background-image: url('../images/bg-close_@2x.png');
+		    background-size: 71px 38px;
+		}
+	}
+/*
+	MINI TOAST
+*/
+/* smaller bottom margin */
+.xRTML-Toast-target .mini-toast {
+	margin-bottom: 10px;
+}
+/* smaller padding */
+.xRTML-Toast-target .mini-toast .rt-pm_toast_content {
+	padding: 10px 15px;
+}
+/* make header smaller */
+.xRTML-Toast-target .mini-toast h3 {
+	border: 0;
+	margin: 0 20px 5px 0;
+}
+/* remove border and padding between header and content */
+.xRTML-Toast-target .mini-toast .rt-pm_toast_body p {
+	padding: 0;
+	border: 0;
+}
+/* hide ok button */
+.xRTML-Toast-target .mini-toast .rt-pm_toast_buttons {
+	height: 0;
+	margin: 0;
+	padding: 0;
+	background: none;
+}
+.xRTML-Toast-target .mini-toast .rt-pm_toast_button_ok {
+	height: 0;
+	width: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	visibility: hidden;
+	
+}
+/* more discreet close button */
+.xRTML-Toast-target .mini-toast .rt-pm_toast_button_close {
+	width: 20px;
+	height: 20px;
+	background: transparent url('../images/pm-sprite.png') no-repeat -28px 9px;
+	background: rgba(0,0,0,0) url('../images/pm-sprite.svg') no-repeat -28px 9px;
+	background-size: auto;
+}
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE BANNERS
+   
+   
+   ========================================================================== */
+   
+.xrtml-toast-banner-mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #333;
+	background-color: rgba(0,0,0,.7);
+	z-index: 10060;
+}
+.xrtml-toast-banner {
+	position: absolute;
+	z-index: 10061;
+	padding: 0px;
+	box-shadow: 0 5px 60px rgba(0,0,0,.6);
+}
+.xrtml-toast-banner-loading {
+	margin: 0;
+	padding: 0;
+	border-radius: 2px;
+	background: #fff url('../images/preload.gif') no-repeat center center;
+	background-size: 50px 50px;
+}
+.xrtml-toast-banner-close {
+	width: 30px;
+	height: 30px;
+	/* position */
+	position: absolute;
+	right: -31px;
+	top: 0;
+	/* rounded corners */
+	border-radius: 0 30px 30px 0;
+	/* background */
+	background: #00a3d9 url('../images/close_banner.png') 6px center no-repeat;
+	background: rgba(0, 163, 217, 1) url('../images/pm-sprite.svg') no-repeat -22px 10px;
+	cursor: pointer;
+}
+.xrtml-toast-content-clickable,
+.xrtml-toast-banner-content-clickable {
+	cursor: pointer;
+}
+.xrtml-toast-banner video {
+	display: block;
+}
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE TEXT CHAT
+   
+   
+   ========================================================================== */
+
+/*
+	THE TEXT-CHAT CONTAINER
+*/
+.pm-textchat-container {
+	display: block;
+	width: 260px;
+	padding: 30px 7px 2px 7px;
+	/* position */
+	position: fixed;
+	left: 20px;
+	bottom: 45px;
+	z-index: 10001;
+	/* text */
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.3em;
+	color: #333;
+	text-align: left;
+	/* rounded corners */
+	border-radius: 25px;
+	/* background */
+    background: transparent url('../images/bg-pm-textchat.png') no-repeat 0 0; /* IE8- */
+	background: rgba(0,163,217,.98); /* IE9 */
+	background: -webkit-linear-gradient(15deg, rgba(0, 117, 176, 0.98) 0%, rgba(0, 168, 224, 0.98) 30%, rgba(0, 117, 176, 0.98) 100%) 0 0 no-repeat rgba(0,0,0,0); /* Chrome10+,Safari5.1+ */
+	background:    -moz-linear-gradient(15deg, rgba(0, 117, 176, 0.98) 0%, rgba(0, 168, 224, 0.98) 30%, rgba(0, 117, 176, 0.98) 100%) 0 0 no-repeat rgba(0,0,0,0); /* FF3.6+ */
+	background:      -o-linear-gradient(15deg, rgba(0, 117, 176, 0.98) 0%, rgba(0, 168, 224, 0.98) 30%, rgba(0, 117, 176, 0.98) 100%) 0 0 no-repeat rgba(0,0,0,0); /* Opera 11.10+ */
+	background:         linear-gradient(75deg, rgba(0, 117, 176, 0.98) 0%, rgba(0, 168, 224, 0.98) 30%, rgba(0, 117, 176, 0.98) 100%) 0 0 no-repeat rgba(0,0,0,0); /* W3C */
+	/* shadow */
+	box-shadow: 0 30px 60px 10px rgba(0,0,0,.3), 0 0 10px rgba(0,0,0,.3);
+	/* animations */
+	-webkit-animation: fadeIn .5s ease-out 0s 1 backwards;
+	   -moz-animation: fadeIn .5s ease-out 0s 1 backwards;
+	        animation: fadeIn .5s ease-out 0s 1 backwards;
+}
+/* pm-minimized text-chat container */
+	.pm-textchat-container.pm-minimized {
+		height: 0px;
+		bottom: 20px;
+	}
+.pm-textchat-container .pm-textchat {
+	display: block;
+}
+.pm-textchat-container .pm-textchat-header {
+    
+}
+/*
+	THE CLOSE BUTTON
+*/
+.pm-textchat-container .pm-textchat-close {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    text-indent: -99999px;
+    background:   transparent url('../images/pm-sprite.png') no-repeat -20px 7px; /* IE8- */
+    background: rgba(0,0,0,0) url('../images/pm-sprite.svg') no-repeat -20px 7px; /* modern browsers */
+    cursor: pointer;
+    z-index: 2;
+}
+/*
+	THE MINIMIZE / MAXIMIZE  BUTTON
+*/
+.pm-textchat-container .pm-textchat-minimize {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /*expand the button over the header to make the clickable area larger */
+    width: 220px;
+    height: 35px;
+    cursor: pointer;
+    text-indent: -99999px;
+    background:   transparent url('../images/pm-sprite.png') no-repeat 195px 10px; /* IE8- */
+    background: rgba(0,0,0,0) url('../images/pm-sprite.svg') no-repeat 195px 10px; /* modern browsers */
+    cursor: pointer;
+    z-index: 2;
+}
+/* the button when the text-chat is pm-minimized */
+	.pm-textchat-container.pm-minimized .pm-textchat-minimize {
+		background-position: 195px -20px;
+	}
+/*
+	THE TEXT-CHAT TITLE
+*/
+.pm-textchat-container .pm-text-chat-title {
+	display: block;
+	height: 70px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	/* position */
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	/* hide text */
+	text-align: left;
+	text-indent: -99999px;
+	/* background */
+	background: transparent url('../images/bg-header.png') no-repeat center top;
+}
+/* retina image */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		.pm-textchat-container .pm-text-chat-title {
+		    background-image: url('../images/bg-header_@2x.png');
+		    background-size: 260px 70px;
+		}
+	}
+
+/*
+    THE OPERATOR PHOTO AND NAME
+*/
+.pm-textchat-container .pm-textchat-operator-photo-container {
+    display: none;
+}
+/* the div around the operators photo */
+.pm-textchat-container .pm-textchat-operator-photo {
+    height: 150px;
+    text-align: center;
+}
+/* the operators photo */
+.pm-textchat-container .pm-textchat-operator-photo img {
+    height: auto;
+    max-height: 100%;
+}
+/* the operators name */
+.pm-textchat-container .pm-textchat-operator-name {
+    line-height: 20px;
+    margin: 0;
+    padding: 0 10px;
+    color: #fff;
+    text-align: center;
+}
+
+/*
+	THE CONVERSATION CONTAINER
+*/
+.pm-textchat-container .pm-textchat-shoutscontainer {
+    padding: 20px 10px 30px 10px;
+    height: 250px;
+    position: relative;
+    /* scrolling */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-touch-action: pan-y;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    /* rounded corners */
+    border: none;
+    border-radius: 16px;
+    /* background */
+    background-color: rgba(0,0,0,.1);
+    /* shadow */
+    box-shadow: inset 0 1px 18px rgba(0,0,0,.2), inset 0 20px 80px 10px rgba(0,0,0,.3);
+}
+/* RESPONSIVENESS - limit the height of the text-chat for smaller screens */
+	@media (max-height: 420px){
+		.pm-textchat-container .pm-textchat-shoutscontainer{
+		    height: 180px;
+		}
+	}
+
+/*
+	Custom scroll bar for the conversation container - ONLY WEBKIT 
+*/
+	.pm-textchat-container .pm-textchat-shoutscontainer::-webkit-scrollbar {
+		width: 8px;
+		background: none;
+		box-shadow: none;
+	}
+	.pm-textchat-container .pm-textchat-shoutscontainer::-webkit-scrollbar-track{
+		background: transparent;
+		box-shadow: none;
+	}
+	.pm-textchat-container .pm-textchat-shoutscontainer::-webkit-scrollbar-thumb{
+		background: #eee;
+		border: none;
+		border-radius: 6px;
+		box-shadow: 0 1px 5px rgba(0,0,0,.3);
+	}
+	/* the pm-minimized conversation container */
+	.pm-textchat-container.pm-minimized .pm-textchat-shoutscontainer {
+		margin-top: 50px;
+	}
+/*
+    THE MESSAGES WRAPPER
+*/
+.pm-textchat-container .pm-textchat-wrapper {
+    
+}
+/*
+	THE MESSAGE CONTAINER
+*/
+.pm-textchat-container .pm-textchat-shout {
+	display: block;
+	position: relative;
+	max-width: 85%;
+	margin: 20px 0 0 0;
+	padding: 6px 10px 2px 10px;
+	clear: both;
+	/* background */
+	background: #f5f5f5;
+	/* rounded corners */
+    border: none;
+    border-radius: 16px;
+    /* background */
+    background: #eee; /* Old browsers */
+    background: -webkit-linear-gradient(bottom, #eee 10px, #fff 100%); /* Chrome10+,Safari5.1+ */
+    background:    -moz-linear-gradient(bottom, #eee 10px, #fff 100%); /* FF3.6+ */
+    background: 	 -o-linear-gradient(top, #fff 0%, #eee 100%); /* Opera 11.10+ */
+    background: 		linear-gradient(to top, #eee 10px, #fff 100%); /* W3C */
+    /* shadow */
+    box-shadow: 0 10px 10px -6px rgba(0,0,0,.4);
+}
+/* messages from the operator */
+.pm-textchat-container .pm-textchat-shout.operator {
+	border-bottom-left-radius: 0;
+	float: left;
+	*float: none; /* IE7 */
+	*width: 75%; /* IE7 */
+}
+.pm-textchat-container .pm-textchat-shout.operator:before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: -4px;
+	border-right: 6px solid #eee;
+	border-top: 16px solid transparent;
+}
+/* messages from the visitor */
+.pm-textchat-container .pm-textchat-shout.visitor {
+	float: right;
+	border-bottom-right-radius: 0;
+	*width: 75%; /* IE7 */
+}
+.pm-textchat-container .pm-textchat-shout.visitor:before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	right: -4px;
+	border-left: 6px solid #eee;
+	border-top: 16px solid transparent;
+}
+/*
+	THE MESSAGE SENDER
+*/
+.pm-textchat-container .pm-textchat-shout-username {
+    display: block;
+    float: left;
+    margin: -22px 0 0 0;
+    padding: 0 5px 0 0;
+    color: #0075b0;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.pm-textchat-container .visitor .pm-textchat-shout-username {
+	text-align: right;
+}
+/* hide the operator and client tags */
+.pm-textchat-container .pm-textchat-shout-username .username {
+	height: 0;
+	width: 0;
+	margin: 0;
+	padding: 0;
+	line-height: 0;
+	font-size: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+/* 
+	THE TIME STAMP
+*/
+.pm-textchat-container .pm-textchat-shout-username .time {
+	font-weight: bold;
+	font-size: 10px;
+	color: #fff;
+	text-shadow: 0 -1px 1px rgba(0,0,0,.3);
+}
+.pm-textchat-container .visitor .pm-textchat-shout-username {
+	float: right;
+	text-align: right;
+}
+/*
+	THE MESSAGE
+*/
+.pm-textchat-container .pm-textchat-shout-message {
+    display: block;
+    margin: 0;
+    padding: 0 0 4px 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    /* Make the text soft-wrap */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.pm-textchat-container .pm-textchat-shout-message a {
+	color: #0075b0;
+    text-decoration: underline;
+    word-break: break-all;
+}
+/*
+    TEXT-CHAT ENDED AND NOW TALKING TO A NEW OPERATOR
+*/
+.pm-textchat-container .pm-textchat-new-operator {
+    display: block;
+    padding: 15px 0 0 0;
+    clear: both;
+}
+.pm-textchat-container .pm-textchat-new-operator  p {
+    line-height: 2em;
+    text-align: center;
+    color: #eee;
+    font-weight: bold;
+    background: #00a9e0;
+    background: rgba(0,0,0,.3);
+    border-radius: 30px;
+}
+/*
+	THE USER IS TYPING
+*/
+.pm-textchat-container .pm-textchat-typing {
+	height: 11px;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+}
+/*
+	THE CONNECTION WAS LOST AND IS RECONNECTING
+*/
+.pm-textchat-container .pm-connecting {
+	display: block;
+	clear: both;
+	width: 74%;
+	height: 16px;
+	margin: 5px auto;
+	padding: 5px 0 5px 12px;
+	/* text */
+	color: #fff;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 16px;
+	text-align: center;
+	/* rounded corners */
+	border-radius: 16px;
+	/* background */
+	background:           #62bbe0 url('../images/pm-loading-mini.gif') no-repeat 6px center; /* IE8- */
+	background: rgba(98,187,224,1) url('../images/pm-loading_@2x.gif') no-repeat 6px center; /* modern browsers */
+	background-size: 16px;
+}
+.pm-textchat-container .pm-connecting p {
+    margin: 0;
+}
+/*
+	THE FEEDBACK MESSAGES - disconnected, etc.
+*/
+.pm-textchat-container .pm-user-feedback {
+	display: block;
+	clear: both;
+	margin: 2px 0;
+	padding: 0;
+	text-align: center;
+}
+.pm-textchat-container .pm-user-feedback p {
+    display: inline;
+    display: inline-block;
+    padding: 3px 13px;
+    /* text */
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    /* rounded corners */
+    border-radius: 16px;
+    /* background */
+    background: #62bbe0;
+}
+/*
+	THE INPUT FIELD
+*/
+.pm-textchat-container .pm-textchat-shoutform {
+	position: relative;
+	height: 86px;
+	padding: 16px 0 0;
+	width: 100%;
+	margin: -2px auto -47px auto;
+	/* background */
+	background: transparent url('../images/bg-input-ie8.png') no-repeat center top; /* IE8- */
+	background: rgba(255,255,255,0) url('../images/bg-input.png') no-repeat center top; /* modern browsers */
+}
+/* retina image */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		.pm-textchat-container .pm-textchat-shoutform{
+		    background-image: url('../images/bg-input_@2x.png');
+		    background-size: 280px 130px;
+		}
+	}
+/* pull the input a bit more up in webkit */
+	@media (-webkit-min-device-pixel-ratio: 1){
+		.pm-textchat-container .pm-textchat-shoutform{
+		    margin-top: -30px;
+		}
+	}
+/* pm-minimized input field */
+	.pm-textchat-container.pm-minimized .pm-textchat-shoutform {
+		visibility: hidden;
+	}
+/* the textarea to write the message */
+.pm-textchat-container .pm-textchat-shoutform-shoutcontent {
+    display: block;
+    position: relative;
+    float: none;
+    height: 16px;
+    line-height: 16px;
+    width: 188px;
+    margin: 0 auto;
+    padding: 8px;
+    overflow: auto;
+    /* text */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #333;
+    /* rounded corners */
+    border-radius: 20px;
+    border: none;
+    resize: none;
+    /* background */
+    background: none; /* IE8- */
+    background: rgba(255,255,255,1); /* modern browseres */
+    /* shadow */
+    box-shadow: 0 -1px 2px rgba(0,0,0,.4), 0 1px 1px rgba(255,255,255,.3);
+    -webkit-appearance: none;
+    /* transitions */
+    -webkit-transition: all .2s ease 0s;
+       -moz-transition: all .2s ease 0s;
+         -o-transition: all .2s ease 0s;
+            transition: all .2s ease 0s;
+}
+.pm-textchat-container textarea.pm-textchat-shoutform-shoutcontent:focus {
+    margin-top: -9px;
+    height: 50px;
+    width: 220px;
+    border-radius: 6px;
+    background: #fff;
+    /* shadow */
+    box-shadow: 0 5px 30px rgba(0,0,0,.4);
+    border: 3px solid #fff;
+}
+/* disable square outline when focus */ 
+.pm-textchat-container .pm-textchat-shoutform-shoutcontent:focus {
+	outline: none;
+	box-shadow: 0 -1px 2px rgba(0,0,0,.4), 0 1px 1px rgba(255,255,255,.3), 0 0 10px rgba(255,255,255,.4);
+}
+/* disabled textarea */
+.pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled {
+    background: #62bbe0;
+}
+.pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled::-webkit-input-placeholder {
+	background: none;
+}
+.pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled:-moz-placeholder {
+	background: #fff;
+}
+.pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled:-ms-input-placeholder {
+	background: #fff;
+}
+.pm-textchat-container .pm-textchat-shoutform-shoutcontent:disabled::placeholder {
+	background: none;
+}
+/*
+	Custom scroll bar for the textarea - ONLY WEBKIT 
+*/
+	.pm-textchat-container .pm-textchat-shoutform-shoutcontent::-webkit-scrollbar {
+		width: 8px;
+		background: none;
+		box-shadow: none;
+	}
+	.pm-textchat-container .pm-textchat-shoutform-shoutcontent::-webkit-scrollbar-track{
+		background: transparent;
+	}
+	.pm-textchat-container .pm-textchat-shoutform-shoutcontent::-webkit-scrollbar-thumb{
+		background: #accd56;
+		border: none;
+		border-radius: 6px;
+		box-shadow: 0 1px 2px rgba(0,0,0,.4);
+		box-shadow: none;
+	}
+
+
+/*
+	THE RATING FORM
+*/
+.pm-rating-container {
+	display: block;
+	width: 185px;
+	padding: 5px 20px 20px 20px;
+	/* position */
+	position: fixed;
+	left: 50px;
+	bottom: 0;
+	z-index: 10005;
+	/* text */
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.3em;
+	color: #555;
+	text-align: left;
+	/* rounded corners */
+	border-radius: 8px 8px 0 0;
+	/* background */
+	background: #f5f5f5;
+	/* shadow */
+	box-shadow: 0 5px 10px rgba(0,0,0,.4), 0 16px 8px -15px rgba(0,0,0,.4);
+	/* animations */
+	-webkit-animation: fadeInUp .4s ease-out 0s 1 backwards;
+	   -moz-animation: fadeInUp .4s ease-out 0s 1 backwards;
+			animation: fadeInUp .4s ease-out 0s 1 backwards;
+    
+	border: 1px solid #999; /* show border on IE8- */
+	border: 0px solid rgba(0,0,0,0); /* hide border in modern browsers */
+}
+.pm-rating-container p {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 6px 0;
+}
+.pm-rating-value {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 150px;
+	height: 30px;
+	text-align: left;
+	overflow: hidden;
+	position: relative;
+	font-size: 12px;
+	line-height: 30px;
+	white-space: nowrap;
+	background-image: url("data:image/svg+xml;charset=utf-8;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAwIDIwIDIwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy4wLjIgKDc3OTkpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPlNsaWNlIDE8L3RpdGxlPgogICAgPGRlc2NyaXB0aW9uPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjcmlwdGlvbj4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPgogICAgICAgIDxwYXRoIGQ9Ik0xMCwwIEwxMy4wOSw2LjU4MyBMMjAsNy42MzkgTDE1LDEyLjc2NCBMMTYuMTgsMjAgTDEwLDE2LjU4MyBMMy44MiwyMCBMNSwxMi43NjQgTDAsNy42MzkgTDYuOTEsNi41ODMgTDEwLDAgWiIgaWQ9InN0YXIiIGZpbGw9IiNEMkQyRDIiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4KICAgIDwvZz4KPC9zdmc+");
+	background-position: 0 0;
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+}
+.pm-rating-value i {
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 20%;
+	text-align: right;
+	color: rgba(0, 0, 0, 0);
+	z-index: 1;
+	background-image: url("data:image/svg+xml;charset=utf-8;base64, PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMjBweCIgdmlld0JveD0iMCAwIDIwIDIwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy4wLjIgKDc3OTkpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPlNsaWNlIDE8L3RpdGxlPgogICAgPGRlc2NyaXB0aW9uPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjcmlwdGlvbj4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPgogICAgICAgIDxwYXRoIGQ9Ik0xMCwwIEwxMy4wOSw2LjU4MyBMMjAsNy42MzkgTDE1LDEyLjc2NCBMMTYuMTgsMjAgTDEwLDE2LjU4MyBMMy44MiwyMCBMNSwxMi43NjQgTDAsNy42MzkgTDYuOTEsNi41ODMgTDEwLDAgWiIgaWQ9InN0YXIiIGZpbGw9IiNGNEQyNDUiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4KICAgIDwvZz4KPC9zdmc+");
+	background-position: 0 0;
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+}
+.pm-rating-value input {
+	float: left;
+	position: relative;
+	margin: 0 10px 0 4px;
+	padding: 0;
+	width: 15px;
+	height: 100%;
+	opacity: 0;
+	opacity: 1\8;
+	z-index: 2;
+	cursor: pointer;
+}
+.pm-rating-value input:hover + i,
+.pm-rating-value input:checked + i {
+	opacity: 1;
+}
+.pm-rating-value i ~ i {
+	width: 40%;
+}
+.pm-rating-value i ~ i ~ i {
+	width: 60%;
+}
+.pm-rating-value i ~ i ~ i ~ i {
+	width: 80%;
+}
+.pm-rating-value i ~ i ~ i ~ i ~ i {
+	width: 100%;
+}
+
+.pm-rating-comments {
+
+}
+.pm-rating-comments textarea {
+	width: 90%;
+	height: 90px;
+	padding: 5%;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	resize: none;
+	outline: none;
+}
+
+.pm-rating-container .pm-rating-buttons button {
+	margin: 10px 0 0 0
+}
+.pm-rating-container .pm-rating-buttons .pm-button-yes {
+	float: right;
+}
+
+.pm-rating-buttons button {
+	height: 25px;
+	margin: 10px 5px 5px 5px;
+	padding: 0;
+	min-width: 85px;
+	/* text */
+	color: 	#fff;
+	font-family: inherit;
+	font-size: 12px;
+	line-height: 25px;
+	text-shadow: 0 -1px 2px rgba(0,0,0,.1);
+	text-transform: uppercase;
+	font-weight: 500;
+	/* rounded corners */
+	border: 0;
+	border-radius: 15px;
+	cursor: pointer;
+	/* background */
+	background-color: transparent;
+	background-image: url('../images/bg-help-buttons.png');
+	background-image: -webkit-linear-gradient( #accd56 0%, #88aa32 90%);
+	background-image:    -moz-linear-gradient( #accd56 0%, #88aa32 90%);
+	background-image: 	   -0-linear-gradient( #accd56 0%, #88aa32 90%);
+	background-image: 		  linear-gradient( #accd56 0%, #88aa32 90%);
+	background-repeat: no-repeat;
+	/* shadow */
+	box-shadow: 0 1px 2px -2px rgba(0,0,0,.4);
+	outline: none;
+	cursor: pointer;
+}
+
+.pm-rating-buttons .pm-button-no {
+	background-image: -webkit-linear-gradient( #bbb 0%, #aaa 90%);
+	background-image:    -moz-linear-gradient( #bbb 0%, #aaa 90%);
+	background-image: 	   -0-linear-gradient( #bbb 0%, #aaa 90%);
+	background-image: 		  linear-gradient( #bbb 0%, #aaa 90%);
+	box-shadow: none;
+}
+.pm-rating-buttons button:active {
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+}
+.pm-rating-buttons .pm-button-yes:disabled {
+	text-shadow: none;
+	background: #ccc;
+	box-shadow: none;
+	cursor: default;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+
+
+   THE VIDEO CHAT
+   
+   
+   ========================================================================== */
+
+/*
+	THE CONTAINER OF THE VIDEO CHAT
+*/
+.pm-videochat_publisher_placeholder {
+    display: block;
+    width: 272px;
+    padding: 0 10px 10px 10px;
+    /* position */
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 10000;
+    /* text */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.3em;
+    color: #fff;
+    text-align: left;
+    /* rounded corners */
+    border-radius: 25px;
+    /* background */
+    background: transparent url('../images/bg-pm-videochat.png') no-repeat 0 0; /* IE8- */
+    background: rgba(0,163,217,.95); /* IE9 */
+    background: -webkit-linear-gradient(15deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* Chrome10+,Safari5.1+ */
+    background:    -moz-linear-gradient(15deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* FF3.6+ */
+    background:      -o-linear-gradient(15deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* Opera 11.10+ */
+    background:         linear-gradient(75deg, rgba(0, 117, 176, 0.95) 0%, rgba(0, 168, 224, 0.95) 30%, rgba(0, 117, 176, 0.95) 100%) 0 0 no-repeat rgba(0,0,0,0); /* W3C */
+    /* shadow */
+    box-shadow: 0 30px 90px 10px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.1);
+    /* animations */
+    -webkit-animation: fadeIn .5s ease-out 0s 1 backwards;
+       -moz-animation: fadeIn .5s ease-out 0s 1 backwards;
+            animation: fadeIn .5s ease-out 0s 1 backwards;
+            
+            
+            background: -webkit-linear-gradient(15deg, rgba(0, 117, 176, 0.98) 0%, rgba(0, 168, 224, 0.98) 30%, rgba(0, 117, 176, 0.98) 100%) 0 0 no-repeat rgba(0,0,0,0);
+
+}
+.pm-videochat_publisher_placeholder:after {
+	content: '';
+	width: 180px;
+	height: 40px;
+	position: absolute;
+	bottom: -40px;
+	right: 0px;
+	background: transparent url('../images/tip-videochat.png') no-repeat 0 0;
+}
+/*
+	THE HEADER OF THE VIDEO CHAT
+*/
+.pm-videochat_publisher_placeholder .pm-videochat-header {
+	
+}
+.pm-videochat_publisher_placeholder .pm-videochat-header h4 {
+	display: block;
+	margin: 0 0 -22px 0;
+	padding: 0;
+	height: 60px;
+	width: 100%;
+	/* position */
+	position: relative;
+	z-index: 2;
+	/* hide text */
+	text-align: left;
+	text-indent: -99999px;
+	/* background */
+	background: transparent url('../images/bg-header.png') no-repeat center top;
+}
+/* retina image */
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+		.pm-videochat_publisher_placeholder .pm-videochat-header h4 {
+		    background-image: url('../images/bg-header_@2x.png');
+		    background-size: 260px 70px;
+		}
+	}
+
+/*
+	THE CLOSE BUTTON
+*/
+.pm-videochat_publisher_placeholder .pm-videochat-close {
+	width: 20px;
+	min-width: 0;
+	height: 20px;
+	padding: 0;
+	/* position */
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	z-index: 2;
+	/* remove borders */
+	border: 0;
+	border-radius: 0;
+	cursor: pointer;
+	text-indent: -99999px;
+	/* background */
+	background:   transparent url('../images/pm-sprite.png') no-repeat -25px 7px; /* IE8- */
+	background: rgba(0,0,0,0) url('../images/pm-sprite.svg') no-repeat -25px 7px; /* modern browsers */
+	cursor: pointer;
+}
+/*
+	THE MINIMIZE BUTTON
+*/
+.pm-videochat_publisher_placeholder .pm-videochat-minimize {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 250px;
+	height: 30px;
+	cursor: pointer;
+	text-indent: -99999px;
+	background: transparent url('../images/pm-sprite.png') no-repeat 220px 10px; /* IE8- */
+	background: rgba(0,0,0,0) url('../images/pm-sprite.svg') no-repeat 220px 10px; /* modern browsers */
+	cursor: pointer;
+	z-index: 2;
+}
+/* the minimized state */
+.pm-videochat_publisher_placeholder.pm-minimized .pm-videochat-minimize {
+	background-position: 220px -20px;
+}
+/*
+	THE CONTAINER OF THE VIDEO STREAMS
+*/
+.pm-videochat_publisher_placeholder .pm-videochat-streams {
+	margin: 0;
+	padding: 0;
+	background: none;
+}
+/*
+	THE INDIVIDUAL STREAMS
+*/
+.pm-videochat_publisher_placeholder .pm-videochat-user {
+	display: block;
+	position: relative;
+	width: 248px;
+	height: 182px;
+	padding: 12px;
+	margin: 0 auto;
+	overflow: hidden;
+	/* rounded corners */
+	border-radius: 16px;
+	/* background */
+	background: transparent;
+	/* shadow */
+	box-shadow: inset 0 10px 50px 10px rgba(0,0,0,.3), inset 0 1px 5px rgba(0,0,0,.2);
+}
+/* RESPONSIVENESS - change the height of the video streams to fit in smaller screens */
+	@media (max-height: 500px){
+		.pm-videochat_publisher_placeholder .pm-videochat-user {
+		    height: 180px;
+		    padding: 0 12px;
+		    border-radius: 12px;
+		}
+	}
+	@media (max-height: 440px){
+		.pm-videochat_publisher_placeholder .pm-videochat-user {
+		    height: 160px;
+		    padding: 0 12px;
+		}
+	}
+/*
+/* the identifier of the stream */
+.pm-videochat_publisher_placeholder .pm-videochat-user h5 {
+    width: 0;
+    height: 0;
+	visibility: hidden;
+}
+/* the container of the flash object */
+.pm-videochat_publisher_placeholder .pm-videochat-stream-container {
+	text-align: center;
+	height: 100%;
+}
+	/* when connecting */
+.pm-videochat_publisher_placeholder .pm-videochat-user.pm-connecting {
+	background: transparent url('../images/pm-loading.gif') no-repeat center center;
+	background-size: 50px;
+}
+/* the flash object */
+.pm-videochat_publisher_placeholder .pm-videochat-stream-container object {
+    
+}
+/* videochat ended */
+.pm-videochat_publisher_placeholder .pm-user-feedback {
+    position: absolute;
+    top: 44%;
+    width: 248px;
+    text-align: center;
+    
+}
+.pm-videochat_publisher_placeholder .pm-user-feedback p {
+    display: block;
+    display: inline-block;
+    margin: 3px 0;
+    padding: 3px 13px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 16px;
+    background: rgba(98, 187, 224, 1);
+}
+/* the flash object */
+.pm-videochat_publisher_placeholder .pm-videochat-stream-container object {
+	max-height: 100%;
+	max-width: 100%;
+	background: transparent;
+}
+/* add margin between the two users */
+.pm-videochat_publisher_placeholder .pm-videochat-visitor {
+	margin-bottom: 10px;
+}
+/*
+	THE MINIMIZED STATE OF THE VIDEO-CHAT
+*/
+/*  change height of the video-chat container */
+.pm-videochat_publisher_placeholder.pm-minimized {
+	height: 22px;
+	min-height: 0;
+	bottom: 20px;
+}
+/* hide the tip */
+.pm-videochat_publisher_placeholder.pm-minimized:after {
+	display: none;
+}
+/* hide the video streams without display none, which would end the flash aplication */
+.pm-videochat_publisher_placeholder.pm-minimized .pm-videochat-streams {
+	height: 0;
+	overflow: hidden;
+}
+
+
+
+
+
+/* ==========================================================================
+
+
+   END TEXT CHAT AND VIDEO CHAT CONFIRMATION DIALOGS 
+   
+   
+   ========================================================================== */
+   
+.pm-textchat-container .pm-end-textchat,
+.pm-videochat_publisher_placeholder .pm-end-videochat {
+	display: block;
+	min-height: 55px;
+	width: 87%;
+	padding: 10px 3%;
+	text-align: center;
+	/* position */
+	position: absolute;
+	bottom: 38%;
+	left: 4%;
+	z-index: 5;
+	color: #333;
+	line-height: 20px;
+	font-size: 12px;
+	font-weight: 600;
+	/* rounded corners */
+	border-radius: 8px;
+	/* background */
+	background: #fff; /* Old browsers */
+	background: rgba(255,255,255,.97); /* modern browsers */
+	/* shadow */
+	box-shadow: 0 5px 10px rgba(0,0,0,.4), 0 16px 8px -15px rgba(0,0,0,.4);
+	/* animations */
+	-webkit-animation: fadeInUp .4s ease-out 0s 1 backwards;
+	   -moz-animation: fadeInUp .4s ease-out 0s 1 backwards;
+			animation: fadeInUp .4s ease-out 0s 1 backwards;
+    
+	border: 1px solid #999; /* show border on IE8- */
+	border: 0px solid rgba(0,0,0,0); /* hide border in modern browsers */
+}
+.pm-textchat-container .pm-end-textchat button,
+.pm-videochat_publisher_placeholder .pm-end-videochat button {
+	height: 25px;
+	margin: 10px 5px 5px 5px;
+	padding: 0;
+	min-width: 85px;
+	/* text */
+	color: 	#fff;
+	font-family: inherit;
+	font-size: 12px;
+	line-height: 25px;
+	text-shadow: 0 -1px 2px rgba(0,0,0,.1);
+	text-transform: uppercase;
+	font-weight: 500;
+	/* rounded corners */
+	border: 0;
+	border-radius: 15px;
+	cursor: pointer;
+	/* background */
+	background-color: transparent;
+	background-image: url('../images/bg-help-buttons.png');
+	background-image: -webkit-linear-gradient( #accd56 0%, #88aa32 90%);
+	background-image:    -moz-linear-gradient( #accd56 0%, #88aa32 90%);
+	background-image: 	   -0-linear-gradient( #accd56 0%, #88aa32 90%);
+	background-image: 		  linear-gradient( #accd56 0%, #88aa32 90%);
+	background-repeat: no-repeat;
+	/* shadow */
+	box-shadow: 0 1px 2px -2px rgba(0,0,0,.4);
+	outline: none;
+	cursor: pointer;
+}
+.pm-textchat-container .pm-end-textchat .pm-button-yes,
+.pm-videochat_publisher_placeholder .pm-end-videochat  .pm-button-yes {
+	background-image: -webkit-linear-gradient( #bbb 0%, #aaa 90%);
+	background-image:    -moz-linear-gradient( #bbb 0%, #aaa 90%);
+	background-image: 	   -0-linear-gradient( #bbb 0%, #aaa 90%);
+	background-image: 		  linear-gradient( #bbb 0%, #aaa 90%);
+	box-shadow: none;
+}
+.pm-textchat-container .pm-end-textchat button:active,
+.pm-videochat_publisher_placeholder .pm-end-videochat button:active {
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+}
+
+
+
+
+
+/* ==========================================================================
+
+
+   VISITORS WIDGET
+   
+   
+   ========================================================================== */
+
+/* THE VISITORS WIDGET CONTAINER */
+.pm-visitors-container {
+    position: fixed;
+    left: 20px;
+    top: auto;
+    right: auto;
+    bottom: 60px;
+    z-index: 10000;
+    /* improve text rendering */
+    -webkit-font-smoothing: subpixel-antialiased;
+       -moz-font-smoothing: subpixel-antialiased;
+            font-smoothing: subpixel-antialiased;
+    opacity: 0.92; /* a bit of transparency - modern browsers only */
+}
+
+.pm-visitors-container .pm-visitors {
+    display: block;
+    float: left;
+    clear: both;
+    margin: 4px 10px 2px 0;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.2em;
+    color: #fff;
+    text-align: left;
+    /* rounded corners */
+    border-radius: 20px;
+    /* background */
+    background: #0075b0;
+    background-image: -webkit-linear-gradient(80deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* Chrome10+,Safari5.1+ */
+    background-image:    -moz-linear-gradient(20deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* FF3.6+ */
+    background-image: 	   -o-linear-gradient(80deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* Opera 11.10+ */
+    background-image: 		  linear-gradient(20deg, #0075b0 0%, #00a9e0 70%, #00A3D9 100%); /* W3C */
+    /* shadow */
+    box-shadow: 0 10px 20px 5px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1);
+    /* animations */
+    -webkit-animation: bounceInUp .9s ease 0s 1 backwards;
+       -moz-animation: bounceInUp .9s ease 0s 1 backwards;
+            animation: bounceInUp .9s ease 0s 1 backwards;
+}
+.pm-visitors-container p {
+    line-height: 1.2em;
+    margin: 0;
+}
+
+/* Global */
+.pm-visitors-container .pm-visitors-global {
+    
+}
+.pm-visitors-container .pm-visitors-global p {
+    
+}
+.pm-visitors-container .pm-global-before {
+    
+}
+.pm-visitors-container .pm-global-number {
+    font-size: 1.4em;
+}
+.pm-visitors-container .pm-global-after {
+    
+}
+
+/* Page */
+.pm-visitors-container .pm-visitors-page {
+    
+}
+.pm-visitors-container .pm-visitors-page p {
+    
+}
+.pm-visitors-container .pm-page-before {
+    
+}
+.pm-visitors-container .pm-page-number {
+    font-size: 1.4em;
+}
+.pm-visitors-container .pm-page-after {
+    
+}
+
+
+/* ==========================================================================
+
+
+   CSS3 ANIMATIONS
+   
+   
+   ========================================================================== */
+
+
+
+/* FADE IN - Used by the Text Chat and the Video Chat */
+
+/* Chrome and Safari */
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+	    opacity: 1;
+	}
+}
+/* Firefox */
+@-moz-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+	    opacity: 1;
+	}
+}
+/* W3C */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+	    opacity: 1;
+	}
+}
+
+
+
+/* FADE IN UP - Used by the toasts */
+
+/* Chrome and Safari */
+@-webkit-keyframes fadeInUp {
+	from {
+		opacity: 0;
+		-webkit-transform: translateY(200px);
+	}
+	to {
+	    opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+/* Firefox */
+@-moz-keyframes fadeInUp {
+	from {
+		opacity: 0;
+		-moz-transform: translateY(200px);
+	}
+	to {
+	    opacity: 1;
+		-moz-transform: translateY(0);
+	}
+}
+/* W3C */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(200px);
+	}
+	to {
+	    opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+
+/* FADE IN DOWN - Used by the visitors widget */
+
+/* Chrome and Safari */
+@-webkit-keyframes bounceInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(200px);
+	}
+	
+	60% {
+		opacity: 1;
+		-webkit-transform: translateY(-6px);
+	}
+	
+	80% {
+		-webkit-transform: translateY(2px);
+	}
+	
+	100% {
+		-webkit-transform: translateY(0);
+	}
+}
+/* Firefox */
+@-moz-keyframes bounceInUp {
+	0% {
+		opacity: 0;
+		-moz-transform: translateY(200px);
+	}
+	
+	60% {
+		opacity: 1;
+		-moz-transform: translateY(-6px);
+	}
+	
+	80% {
+		-moz-transform: translateY(2px);
+	}
+	
+	100% {
+		-moz-transform: translateY(0);
+	}
+}
+/* W3C */
+@keyframes bounceInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(200px);
+	}
+	
+	60% {
+		opacity: 1;
+		transform: translateY(-6px);
+	}
+	
+	80% {
+		transform: translateY(2px);
+	}
+	
+	100% {
+		transform: translateY(0);
+	}
+}
+
+
+
+
+
+
+
+
