@@ -61,6 +61,13 @@ class AppController extends Controller {
 			}
 		} else {
 			$this->theme='loja';
-		}
+		}            
 	}
+        
+        
+    public function beforeRender() {
+        parent::beforeRender();
+        
+        $this->set('user', $this->Auth->user());
+    }
 }

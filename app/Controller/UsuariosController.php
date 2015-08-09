@@ -19,7 +19,7 @@ class UsuariosController extends AppController {
             if ($this->request->is(array('post', 'put'))){
                 if($this->Auth->login()){
                     $this->Session->setFlash("Logado Com Sucesso!");
-                    return $this->redirect($this->Auth->redirectUrl());
+                    return $this->redirect('/');
                 } else {
                     $this->Session->setFlash("Não foi possível Logar!");
                 }

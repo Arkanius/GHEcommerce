@@ -14,6 +14,24 @@ class CategoriasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
+        
+    
+        public function menu(){
+            if($this->request->is('requested')){
+                return $this->Categoria->find('list', array('fields' => array('slug', 'titulo')));   
+            }            
+        }
+        
+        public function ver($slug = null) {
+            $conditions = array('Categoria.slug' => $slug);  
+            $categoria = $this->Categoria->find('first', compact('conditions'));
+            
+            if (empty($categoria)) {
+                    throw new NotFoundException(__('Categoria Inválida'));
+            }
+
+            $this->set(compact('categoria')); 
+        }
 
 /**
  * index method

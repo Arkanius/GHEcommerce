@@ -34,14 +34,7 @@
                 </div>
                 <div class="col-lg-8 text-right">
                     <nav class="horizontal">
-                        <ul>
-                            <li><a href="/loja/">Home</a></li>
-                            <li><a href="/loja/pages/sobrenos">Sobre nós</a></li>
-                                <li><a href="/loja/cliente/login">Login</a></li>
-                            <li><a href="/loja/cliente/cadastra">Cadastra</a></li>
-                                <li><a href="/loja/pages/suporte">Suporte</a></li>
-                            <li><a href="/loja/pages/contato">Contato</a></li>
-                        </ul> 
+                          <?php echo $this->element('tema/menu_superior'); ?>
                     </nav>
                 </div>
             </div>
@@ -75,21 +68,8 @@
             <section class="container">
                 <div class="row">
                     <div class="col-lg-3">
-                        <h3>DEPARTAMENTOS</h3>
-                            <nav class="vertical">
-                                <ul>
-                                            <li>
-                                        <a href="/loja/camisetas-masculinas">Camisetas masculinas</a>        </li>
-                                            <li>
-                                        <a href="/loja/camisetas-femininas">Camisetas femininas</a>        </li>
-                                            <li>
-                                        <a href="/loja/camisetas-comemorativas">Camisetas comemorativas</a>        </li>
-                                            <li>
-                                        <a href="/loja/camisetas-engracada">Camisetas engraçada</a>        </li>
-                                            <li>
-                                        <a href="/loja/bermudas">Bermudas</a>        </li>
-                                        </ul>
-                            </nav>
+                        <h3>Departamentos</h3>
+                            <?php echo $this->element('categorias/menu',array(),array('cache' => 'curto')); ?>
                             <p style="margin-top:20px;">
                             <?php 
                                 $img = $this->Html->image(

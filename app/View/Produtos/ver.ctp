@@ -34,7 +34,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<p><strong>Mais detalhes</strong></p>
-			<p><?php echo $produto['Produto']['descricao_longa'];?></p>
+			<p><?php echo (!empty($produto['Produto']['descricao_longa'])) ? 
+                        $produto['Produto']['descricao_longa'] : $produto['Produto']['descricao_curta']; ?></p>
 		</div>
 	</div>
 	<div class="row">

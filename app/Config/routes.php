@@ -4,8 +4,10 @@
 	Router::connect('/',array('controller' => 'produtos', 'action' => 'index'));
 	
         Router::connect('/produto/:slug', array('controller'=>'produtos','action'=>'ver'), array('pass'=>array('slug')));
+        Router::connect('/categoria/:slug', array('controller'=>'categorias','action'=>'ver'), array('pass'=>array('slug')));
         
         Router::connect('/cliente/',array('controller' => 'usuarios', 'action'=>'index'));
+        Router::connect('/loja/cliente/login',array('controller' => 'usuarios', 'action'=>'login'));
         Router::connect('/cliente/:action',array('controller' => 'usuarios', 'action'=>'index'));
         Router::connect('/cliente/:action/*',array('controller' => 'usuarios', 'action'=>'index'));
 

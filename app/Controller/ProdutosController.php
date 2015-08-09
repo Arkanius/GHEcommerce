@@ -12,7 +12,7 @@ class ProdutosController extends AppController {
 
         public function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow(array('index', 'destaque', 'maisvendidos', 'novos'));
+            $this->Auth->allow(array('index', 'destaque', 'maisvendidos', 'novos', 'ver'));
         }
         
         public function destaque($limit = 6){
