@@ -11,6 +11,7 @@
         Router::connect('/cliente/:action',array('controller' => 'usuarios', 'action'=>'index'));
         Router::connect('/cliente/:action/*',array('controller' => 'usuarios', 'action'=>'index'));
 
+	Router::connect('/pages/enviaremail', array('controller' => 'pages', 'action' => 'enviaremail'));
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 

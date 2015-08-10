@@ -88,7 +88,8 @@
                     </div>
                     <div class="col-lg-9">
                     <?php 
-                    echo $this->fetch('content');
+                        echo $this->Session->flash();
+                        echo $this->fetch('content');
                         $img = $this->Html->image(
                             'banner-aviso.jpg'
                         );
