@@ -43,7 +43,51 @@ class ProdutosController extends AppController {
 
 		$this->set(compact('produto'));
 
+	}        
+        
+        public function addcarrinho($id = null){            
+            if (!$this->Produto->exists($id)) {
+			throw new NotFoundException(__('Invalid compra'));
+            }            
+            $carrinho = $this->Produto->addCarrinho($this->Cookie->read('carrinho'), $id);
+            $this->Cookie->write('carrinho', $carrinho);
+            
+            $this->Session->setFlash('Produto adicionado com sucesso');
+            return $this->redirect(array('action'=>'carrinho'));
+        }
+        
+        public function menoscarrinho($id = null){
+            $carrinho = $this->Produto->menosCarrinho($this->Cookie->read('carrinho'), $id);
+            if (!$carrinho) {
+                    throw new NotFoundException(__('Compra não encontrada'));
+            }
+            $this->Cookie->write('carrinho', $carrinho);
+
+            if (!$this->request->is('ajax')){
+                    $this->Session->setFlash('Uma unidade removida com sucesso');
+                    return $this->redirect(array('action'=>'carrinho'));
+            }
+
+            $this->set(compact('carrinho'));
+            $this->render('carrinho_ajax');
 	}
+        
+        public function removecarrinho($id = null){            
+            $carrinho = $this->Produto->removeCarrinho($this->Cookie->read('carrinho'), $id);
+            
+            if(!$carrinho){
+                throw new NotFoundException('Produto não encontrado');
+            }
+            
+            $this->Session->setFlash('Produto removido com sucesso');
+            return $this->redirect(array('action'=>'carrinho'));
+        }
+        public function carrinho(){            
+            $carrinho = $this->Produto->listaCarrinho($this->Cookie->read('carrinho'));
+            $this->set(compact('carrinho'));
+        }
+        
+        
         	
         public function index() {
 		$this->Produto->recursive = 0;

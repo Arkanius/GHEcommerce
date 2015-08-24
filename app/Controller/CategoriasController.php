@@ -15,6 +15,11 @@ class CategoriasController extends AppController {
  */
 	public $components = array('Paginator');
         
+        public function beforeFilter() {
+            parent::beforeFilter();
+            $this->Auth->allow(array('menu')); //irá permitir a função menu deste controller pois se não irá gerar um loop de redirecionamento pois ao entrar no ecommerce  o cake irá tentar gerar o menu que esta protegido por senha (Auth)
+        }
+        
     
         public function menu(){
             if($this->request->is('requested')){

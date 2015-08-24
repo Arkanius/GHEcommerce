@@ -136,5 +136,4 @@ class Compra extends AppModel {
 			'finderQuery' => '',
 		)
 	);
-
 }

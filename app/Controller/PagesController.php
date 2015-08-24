@@ -36,43 +36,33 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array();
-
-/**
- * beforeFilter callback
- *
- * @return void
- */
-	public function beforeFilter() {
-		parent::beforeFilter();
-		$this->Auth->allow();
-	}
-
-	public function enviaremail()
-	{
-		if ($this->request->is(array('post','put'))) {
-			$data = $this->request->data;
-
-			App::uses('CakeEmail', 'Network/Email');
-			$email = new CakeEmail();
-			$email->from(array($data['Page']['email']=>$data['Page']['nome']))
-				->to('falecom@erikfigueiredo.com.br')
-				->subject('Contato CakePHP MyStore');
-			$mensagem = '
-					<p><strong>Nome</strong>: '.$data['Page']['nome'].'</p>
-					<p><strong>Email</strong>: '.$data['Page']['email'].'</p>
-					<p><strong>Telefone</strong>: '.$data['Page']['telefone'].'</p>
-					<p><strong>Mensagem</strong>: '.$data['Page']['mensagem'].'</p>
-				';
-			if ($email->send($mensagem)) {
-				$this->Session->setFlash('Mensagem enviada com sucesso');
-			} else {
-				$this->Session->setFlash('Sua mensagem não foi enviada, tente denovo');
-			}
-			return $this->redirect('/pages/contato');
-		}
-		throw new NotFoundException('Página inexistente!');
-	}
-
+        
+        public  function beforeFilter(){
+            parent::beforeFilter();
+            $this->Auth->allow();
+        }
+        
+        public function enviaremail(){
+            if($this->request->is(array('post', 'put'))){
+                $data = $this->request->data;
+                App::uses('CakeEmail', 'Network/Email');
+                $email = new CakeEmail();
+                $email->from(array($data['Page']['email'] => $data['Page']['nome']))
+                        ->to('vtr.gomes@hotmail.com')
+                        ->subject('Contato loja teste CakePHP');
+                $mensagem = '<p><strong>Nome</strong>: '.$data['Page']['nome'].'</p>
+                            <p><strong>Email</strong>: '.$data['Page']['email'].'</p>
+                            <p><strong>Telefone</strong>: '.$data['Page']['telefone'].'</p>
+                            <p><strong>Mensagem</strong>: '.$data['Page']['mensagem'].'</p>';
+                if ($email->send($mensagem)) {
+                        $this->Session->setFlash('Mensagem enviada com sucesso');
+                } else {
+                        $this->Session->setFlash('Sua mensagem não foi enviada, tente denovo');
+                }
+                return $this->redirect('/pages/contato');
+            }
+            throw new NotFoundException('Página inexistente');
+        }
 
 /**
  * Displays a view

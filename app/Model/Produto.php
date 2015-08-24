@@ -310,5 +310,108 @@ class Produto extends AppModel {
 
 		return $retorno;
 	}
+        
+        public function addCarrinho($carrinho = array(), $produto_id){
+            if(empty($carrinho)){
+                $carrinho = $this->criaCarrinho();
+            }  
+            $produto = $this->getProduto($carrinho, $produto_id);
+            $produto['Produto']['qtd']++;
+            
+            $this->frete($carrinho, $carrinho['frete']['frete']);
+            
+            $carrinho['produtos'][$produto['Produto']['id']] = $produto;
+            
+            return $carrinho;
+        }
+        
+        public function menosCarrinho($carrinho = array(), $produto_id){
+            if (empty($carrinho) or (!$carrinho)) {
+                    $carrinho = $this->criaCarrinho();
+            }
+            if (!array_key_exists($produto_id, $carrinho['produtos'])) {
+                    return false;
+            }
+            if ($carrinho['produtos'][$produto_id]['Produto']['qtd'] > 1) {
+                    $carrinho['produtos'][$produto_id]['Produto']['qtd']--;
+            } else {
+                    unset($carrinho['produtos'][$produto_id]);
+            }
+            $carrinho = $this->frete($carrinho, $carrinho['frete']['frete']);
+            return $carrinho;
+	}
+        
+        public function removeCarinho($carrinho = array(), $produto_id){
+            if(empty($carrinho)){
+                $carrinho = $this->criaCarrinho();
+            }  
+            
+            if(!array_key_exists($produto_id, $carrinho['produtos'])){
+                return false;
+            }
+            
+            unset($carrinho['produtos'][$produto_id]);
+            
+            $this->frete($carrinho, $carrinho['frete']['frete']);
+            
+            return $carrinho;
+        }
+        
+        public function listaCarrinho($carrinho = array()){            
+            if(empty($carrinho)){
+                $carrinho = $this->criaCarrinho();
+            } 
+             return $carrinho;
+        }
+        
+        private function criaCarrinho(){
+                $carrinho = array(
+                    'produtos' => array(),
+                    'frete' => array(
+                        'total' => 0,                        
+                        'frete' => 0,                        
+                        'total_geral' => 0 
+                    )
+                );
+                
+                return $carrinho;
+        }
+        
+        private function frete($carrinho = array(), $frete=0){
+		$total = 0;
+		foreach($carrinho['produtos'] as $v) {
+			$total = $total+($v['Produto']['valor']*$v['Produto']['qtd']);
+		}
+		$carrinho['frete']=array(
+			'total'=>$total,
+			'frete'=>$frete,
+			'total_geral'=>$total+$frete
+		);
+		
+		return $carrinho;
+	}
+
+        
+        public function getProduto($carrinho, $produto_id){
+             $conditions = array(
+                'Produto.id' => $produto_id,                
+            );
+            $recursive = -1;
+            $fields = array(
+                'Produto.id',
+                'Produto.titulo',
+                'Produto.slug',
+                'Produto.valor',
+            );
+            $produto = $this->find('first', compact('conditions', 'recursive', 'fields'));            
+            
+            if(array_key_exists($produto['Produto']['id'], $carrinho['produtos'])){
+                $produto['Produto']['qtd'] =  $carrinho['produtos'][$produto['Produto']['id']]['Produto']['qtd'];
+            }else{
+                $produto['Produto']['qtd'] = 0;
+            }
+            
+            return $produto;
+        }
 
 }
